@@ -1,0 +1,6 @@
+django
+django-tinymce
+django-phonenumber-field
+phonenumbers
+transliterate
+pillow
