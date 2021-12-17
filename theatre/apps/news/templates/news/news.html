@@ -1,0 +1,57 @@
+{% extends 'news/index.html' %}
+{% load static %}
+{% block title %}Новости{% endblock %}
+{% block content %}
+<link href="{% static 'news/news.css' %}" rel="stylesheet"/>
+<div class="page-title">
+    <div class="title-row wrapper">
+        <div class="sum-wrapper">
+            <h1>Новости</h1>
+        </div>
+        <div class="nav-wrapper">
+            <a href="/category"><span class="main-page-link">Главная</span></a>
+            <span class="sep">–</span>
+            <span class="current-page">Новости</span>
+        </div>
+    </div>
+</div>
+<div class="page-content">
+    <div class="wrapper">
+        <section class="content">
+            <div class="posts-container">
+                {% for post in data %}
+                    <article class="post-card">
+                        <div class="post-wrapper">
+                            <div class="post-image-wrapper">
+                                <a href="post_{{ post.0.id }}">
+                                    <img src="{{ post.0.preview_image.url }}" alt="" class="post-image">
+                                </a>
+                            </div>
+                            <div class="post-info-wrapper">
+                                <div class="post-content">
+                                    <h2 class="post-title"><a href="post_{{ post.0.id }}" class="post-link">{{ post.0.title }}</a></h2>
+                                    <p class="post-meta">
+                                        <span class="date">{{ post.0.pubdate.day }}.{{ post.0.pubdate.month }}.{{ post.0.pubdate.year }}</span>
+                                        <span class="sep">|</span>
+                                        <a href="/" class="category tag">Новости</a><span style="color: rgb(100, 100, 100);">, </span>  
+                                        <a href="/" class="category tag">{{ post.0.studio_name }}</a>
+                                    </p>
+                                </div>
+                                <div class="post-nav">
+                                    <div class="more-info">
+                                        <a href="post_{{ post.0.id }}">Читать дальше</a>
+                                    </div>
+                                    <div class="comments">
+                                        <a href="/"><i class="far fa-comments"></i><span class="comments_count">{{ post.1 }}</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'news/index.html' %}
+{% load static %}
+{% block title %}Отправить письмо{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'category/letter.css' %}">
+    <div class="container l_wrapper">
+        <h2>Отправьте нам письмо</h2>
+        <div class="letter_wrapper">
+            <form method="post">
+                {% csrf_token %}
+                <!-- {{ form.user_name }}
+                {{ form.from_email }}
+                {{ form.subject }}
+                {{ form.message }} -->
+                {{ form.as_p }}
+                <div class="form-actions form-group ">
+                    <button type="submit" class="form-control btn btn-success">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

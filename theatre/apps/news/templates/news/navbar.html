@@ -1,0 +1,19 @@
+{% load static %}
+{% block navbar %}
+<link href="{% static 'news/navbar.css' %}" rel="stylesheet"/>
+<div class="index_logo d-flex align-items-center">
+    <a href="/category" class="d-flex align-items-center">
+        <img src="../../../../media/logotip.png" alt="">
+    </a>
+</div>
+<div class="menu d-flex align-items-stretch justify-content-between flex-wrap">
+    <ul class="nav nav-pills in_menu d-flex align-items-stretch">
+        <li class="menu_item d-flex align-items-stretch"><a href="/category" class="menu_link" id="category">Главная</a></li>
+        <li class="menu_item d-flex align-items-stretch"><a href="/news" class="menu_link" id="news">Новости</a></li>
+        <li class="menu_item d-flex align-items-stretch"><a href="/category/contacts" class="menu_link" id="contacts">Контакты</a></li>
+        <li class="menu_item d-flex align-items-stretch"><a href="/news/images-gallery" class="menu_link" id="images-gallery">Галерея изображений</a></li>
+        <li class="menu_item d-flex align-items-stretch"><a href="/news/actions" class="menu_link" id="actions">Мероприятия</a></li>
+        <li class="menu_item d-flex align-items-stretch"><a href="/admin" class="menu_link">Admin Panel</a></li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'news/index.html' %}
+{% load static %}
+{% block title %}{{ action.title }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'news/action.css' %}">
+
+<div class="container">
+
+    <div class="row block">
+        <div class="action-block">
+            <div class="image-block">
+                <img src="{{ action.preview_image.url }}" alt="">
+            </div>
+            <div class="title-block"><h1 class="display-4">{{ action.title }}</h1></div>
+            <div class="main_text-block">
+                {{ action.text|safe }}
+            </div>
+            <div class="meta">
+                <div class="links"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

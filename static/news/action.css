@@ -1,0 +1,48 @@
+.container {
+    margin-top: 25px;
+    padding: 0 20px;
+    background-color: #f1f1f1;
+}
+
+.row {
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 0;
+    padding: 30px 0;
+    margin: 0;
+}
+.block {
+    box-shadow: 0px 12px 10px -5px rgba(0, 0, 0, 0.5),
+                0px -8px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.action-block {
+    padding: 0 7%;
+}
+.image-block {
+    width: 100%;
+    padding: 0 8% 30px 8%;
+    margin-bottom: 50px;
+}
+.image-block img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.title-block {
+    width: 100%;
+}
+.title-block h1.display-4 {
+    color: #2b2b2b;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.24);
+}
+
+.main_text-block {
+    margin: 30px 0;
+    color: #1a1a1a;
+    text-align: justify;
+    transition: .3s linear all;
+}
+.main_text-block:hover {
+    color: #4e4e4e;
+}

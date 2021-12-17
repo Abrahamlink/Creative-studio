@@ -1,0 +1,38 @@
+{% extends 'news/index.html' %}
+{% load static %}
+{% block title %}Галерея изображений{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'news/gallery.css' %}">
+
+<div class="container-fluid">
+    <div class="page-title">
+        <div class="title-row wrapper">
+            <div class="sum-wrapper">
+                <h1 class="title_text display-4">Галерея изображений</h1>
+            </div>
+            <div class="nav-wrapper">
+                <a href="/category"><span class="main-page-link">Главная</span></a>
+                <span class="sep">–</span>
+                <span class="current-page">Галерея</span>
+            </div>
+        </div>
+    </div>
+    <div class="select_wrapper mb-5">
+        <select name="object_gallery_id" class="form-control" id="tag_select">
+            <option value="/images-gallery/all_images/">Все изображения</option>
+            <option value="/images-gallery/action/">Тег "action"</option>
+            <option value="/images-gallery/others/">тег "others"</option>
+        </select>
+    </div>
+    <div class="images_wrapper" id="gallery_all_images">
+        {% for img in images %}
+            <div class="image">
+                <a href="{{ img }}" data-fancybox="gallery">
+                    <img src="{{ img }}" alt="" class="gallery-image">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
