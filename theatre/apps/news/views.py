@@ -16,6 +16,7 @@ def all_news_data(request):
 
 
 def post_data(request, post_id):
+    print('hello')
     template = 'news/post.html'
     data_from_post = NewsPost.objects.get(id=post_id)
     images = ImagePost.objects.filter(product=data_from_post)
