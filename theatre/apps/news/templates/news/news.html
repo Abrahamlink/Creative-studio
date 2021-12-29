@@ -6,7 +6,7 @@
 <div class="page-title">
     <div class="title-row wrapper">
         <div class="sum-wrapper">
-            <h1>Новости</h1>
+            <h1 class="title-text display-4">Новости</h1>
         </div>
         <div class="nav-wrapper">
             <a href="/category"><span class="main-page-link">Главная</span></a>
@@ -16,7 +16,7 @@
     </div>
 </div>
 <div class="page-content">
-    <div class="wrapper">
+    <div class="wrapper news-content-wrapper">
         <section class="content">
             <div class="posts-container">
                 {% for post in data %}
@@ -27,14 +27,19 @@
                                     <img src="{{ post.0.preview_image.url }}" alt="" class="post-image">
                                 </a>
                             </div>
+                            {% if post.0.was_published_recently %}
+                                <div class="new_indicator">
+                                    <span>Свежая!</span>
+                                </div>
+                            {% endif %}
                             <div class="post-info-wrapper">
                                 <div class="post-content">
                                     <h2 class="post-title"><a href="post_{{ post.0.id }}" class="post-link">{{ post.0.title }}</a></h2>
                                     <p class="post-meta">
                                         <span class="date">{{ post.0.pubdate.day }}.{{ post.0.pubdate.month }}.{{ post.0.pubdate.year }}</span>
                                         <span class="sep">|</span>
-                                        <a href="/" class="category tag">Новости</a><span style="color: rgb(100, 100, 100);">, </span>  
-                                        <a href="/" class="category tag">{{ post.0.studio_name }}</a>
+                                        <a href="#" class="category tag">Новости</a><span style="color: rgb(100, 100, 100);">, </span>  
+                                        <a href="#" class="category tag">{{ post.0.studio_name }}</a>
                                     </p>
                                 </div>
                                 <div class="post-nav">
@@ -42,7 +47,7 @@
                                         <a href="post_{{ post.0.id }}">Читать дальше</a>
                                     </div>
                                     <div class="comments">
-                                        <a href="/"><i class="far fa-comments"></i><span class="comments_count">{{ post.1 }}</span></a>
+                                        <a href="post_{{ post.0.id }}#write-comment"><i class="far fa-comments"></i><span class="comments_count">{{ post.1 }}</span></a>
                                     </div>
                                 </div>
                             </div>

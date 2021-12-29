@@ -38,7 +38,7 @@
                         <p>{{ img.text_under|safe }}</p>
                     {% endfor %}
                 </div>
-                <div class="info_after">
+                <div class="info_after" id="write-comment">
                     <span class="date">{{ data.pubdate }}</span>
                     <span class="sep">|</span>
                     <a href="#">Благотворительность,</a>
@@ -46,6 +46,10 @@
                     <a href="#">{{ data.studio_name }}</a>
                     <span class="sep">|</span>
                     <a href="#" class="add_comm">Комментарии</a>
+                    {% if data.was_published_recently %}
+                        <span class="sep">|</span>
+                        <span class="very-new-post">Свежая!</span>
+                    {% endif %}
                 </div>
                 <div class="share">
                     <h3>Поделитесь ссылкой</h3>
@@ -82,7 +86,7 @@
                 
                 <ul class="list_of_pubs">
                     {% for pub in last_pubs %}
-                    <a href="post_{{ pub.1 }}" class="pub_link">
+                    <a href="{% url 'one_post' pub.1 %}" class="pub_link">
                         <li><span>{{ pub.0 }}</span></li>
                     </a>
                     {% endfor %}

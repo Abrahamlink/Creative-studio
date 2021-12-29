@@ -13,31 +13,46 @@
         <link rel="stylesheet" href="{% static 'news/all.min.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Mochiy+Pop+One&family=Oswald:wght@200&family=Corinthia&family=Lobster&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="../../../../../media/Other-python-icon.png" type="image/png">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Mochiy+Pop+One&family=Oswald:wght@200&family=Corinthia&family=Lobster&family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="../../../../../media/log_for_title.png" type="image/png">
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
-        <div class="header_wrapper">
-            <div class="index_wrapper">
-                <header class="header">
-                    {% include 'news/navbar2.html' %}
-                    {% block navbar %}
-                    {% endblock %}
-                </header>
+        {% include 'news/preloader.html' %}
+        {% block preloader %}
+        {% endblock %}
+        <div class="main_wrapper">
+            <div class="header_wrapper">
+                <div class="index_wrapper">
+                    <header class="header">
+                        {% include 'news/navbar2.html' %}
+                        {% block navbar %}
+                        {% endblock %}
+                    </header>
+                </div>
             </div>
+            <main id="main">
+                {% block content %}
+                {% endblock %}
+                {% include 'news/scrollUp.html' %}
+                {% block scroll %}
+                {% endblock %}
+            </main>
+            <footer>
+                {% include 'news/footer.html' %}
+                {% block foobar %}
+                {% endblock %}
+            </footer>
         </div>
-        <main id="main">
-            {% block content %}
-            {% endblock %}
-        </main>
         <script src="{% static 'news/js/jquery-3.6.0.min.js' %}"></script>
         <script src="{% static 'news/js/all.min.js' %}"></script>
         <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
         <script src="{% static 'news/js/navbar.js' %}"></script>
         <script src="{% static 'news/js/navbar2.js' %}"></script>
         <script src="{% static 'news/js/gallery.js' %}"></script>
+        <script src="{% static 'news/js/preloader.js' %}"></script>
         <script src="{% static 'category/js/main.js' %}"></script>
+        <script src="{% static 'category/js/color_scheme.js' %}"></script>
         <script src="https://cdn.tiny.cloud/1/ss5gd7k6yjnsfmkmhnu4u390nyi8xe3r0bog1jpzaeed2aoy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script>
             tinymce.init({

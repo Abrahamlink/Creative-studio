@@ -6,8 +6,23 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'news/actions.css' %}">
 
-<div class="container">
+<!-- title part -->
+<div class="page-title">
+    <div class="title-row wrapper">
+        <div class="sum-wrapper">
+            <h1 class="title-text display-4">Мероприятия</h1>
+        </div>
+        <div class="nav-wrapper">
+            <a href="/category"><span class="main-page-link">Главная</span></a>
+            <span class="sep">–</span>
+            <span class="current-page">Мероприятия</span>
+        </div>
+    </div>
+</div>
+<!-- end title part -->
 
+<div class="container">
+    {% if all_actions %}
     <div class="row block">
         <div class="actions_wrapper">
             <!-- Мероприятия -->
@@ -44,7 +59,15 @@
             <!-- Конец мероприятий -->
         </div>
     </div>
-
+    {% else %}
+        <div class="alternative-block">
+            <div class="alert alert-light" role="alert">
+                <strong>Упс... </strong> Ни одного мероприятия пока нет, 
+                подождите пока их добавят или 
+                <a href="{% url 'send_letter' %}" class="write-link">напишите</a> нам сами
+            </div>
+        </div>
+    {% endif %}
 </div>
 
 {% endblock %}

@@ -5,47 +5,59 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'category/contacts.css' %}">
 
-    <div class="contacts_wrapper">
-        <div class="title_wrapper">
-            <h1>Наши преподаватели</h1>
+<!-- title part -->
+<div class="page-title">
+    <div class="title-row wrapper">
+        <div class="sum-wrapper">
+            <h1 class="title-text display-4">Наши преподаватели</h1>
         </div>
-
-        <div class="cards_wrapper">
-            
-            {% for teacher in teachers %}
-                <div class="card_wrapper">
-                    <div class="card">
-                        {% if not not teacher.photo %}
-                            <div class="avatar_wrapper">
-                                <a href="{{ teacher.photo.url }}" data-fancybox="single">
-                                    <img src="{{ teacher.photo.url }}" alt="Здесь должно быть фото преподавателя">
-                                </a>
-                            </div>
-                        {% else %}
-                            <div class="avatar_wrapper"><img src="../../../../../media/avatar_placeholder.png" alt=""></div>
-                        {% endif %}
-                        <div class="info_wrapper">
-                            
-                            <div class="name_wrapper"><p>{{ teacher.last_name }} {{ teacher.name }} {{ teacher.father_name }}</p></div>
-                            <div class="status_wrapper"><p>{{ teacher.status }}</p></div>
-                            <div class="description"><em>{{ teacher.description|safe }}</em></div>
-
-                        </div>
-                    </div>
-
-                    <div class="how_to_call">
-                        <div class="email"><p><b>Mail: </b>{{ teacher.email }}</p></div>
-                        <div class="telephone"><p><b>Phone: </b>{{ teacher.phone_number }}</p></div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-        <div class="send_letter">
-            <a href="{% url 'send_letter' %}" class="letter_redirect">
-                Отправить письмо
-            </a>
+        <div class="nav-wrapper">
+            <a href="/category"><span class="main-page-link">Главная</span></a>
+            <span class="sep">–</span>
+            <span class="current-page">Контакты</span>
         </div>
     </div>
+</div>
+<!-- end title part -->
+
+<!-- main part with contacts -->
+<div class="wrapper contacts-wrapper">
+    <div class="cards-wrapper">
+        {% for teacher in teachers %}
+
+            <div class="card-wrapper">
+                <div class="teacher-card">
+                    {% if not not teacher.photo %}
+                        <div class="avatar-wrapper">
+                            <a href="{{ teacher.photo.url }}" data-fancybox="single">
+                                <img src="{{ teacher.photo.url }}" alt="Здесь должно быть фото преподавателя">
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="avatar-wrapper"><img src="../../../../../media/avatar_placeholder.png" alt=""></div>
+                    {% endif %}
+                    <div class="info-wrapper">
+                        
+                        <div class="name-wrapper"><p>{{ teacher.last_name }} {{ teacher.name }} {{ teacher.father_name }}</p></div>
+                        <div class="status-wrapper"><p>{{ teacher.status }}</p></div>
+                        <div class="description"><em>{{ teacher.description|safe }}</em></div>
+
+                    </div>
+                </div>
+
+                <div class="how_to_call">
+                    <div class="email"><p><b>Mail: </b>{{ teacher.email }}</p></div>
+                    <div class="telephone"><p><b>Phone: </b>{{ teacher.phone_number }}</p></div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="send_letter">
+        <a href="{% url 'send_letter' %}" class="letter_redirect">Отправить письмо</a>
+    </div>
+</div>
+<!-- end main part -->
 
 {% endblock %}
