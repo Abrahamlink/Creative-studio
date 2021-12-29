@@ -1,0 +1,48 @@
+{% load static %}
+{% block foobar %}
+<link rel="stylesheet" href="{% static 'news/footer.css' %}">
+
+<div class="f_wrapper">
+    <div class="contacts cont">
+        <div class="phone contacts__part">
+            <i class="fas fa-phone-square"></i>
+            <p>+7 (908) 064 56 78</p>
+        </div>
+        <div class="mail contacts__part">
+            <i class="fas fa-envelope"></i>
+            <p>Pravda@gmail.com</p>
+        </div>
+        <div class="location contacts__part">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>New York, USA, 101357</p>
+        </div>
+    </div>
+    <div class="links cont">
+        <div class="news-cont more-block">
+            <a href="{% url 'all_news' %}" class="more-block__link">Новости</a>
+            <p class="dim">Если хотите узнать что нового)</p>
+        </div>
+        <div class="contacts-cont more-block">
+            <a href="{% url 'contacts' %}" class="more-block__link">Контакты</a>
+            <p class="dim">Кликните и узнайте больше о наших преподавателях</p>
+        </div>
+        <div class="gallery-cont more-block">
+            <a href="{% url 'gallery' %}" class="more-block__link">Галерея</a>
+            <p class="dim">Интересно посмотреть нашу галерею изображений?</p>
+        </div>
+        <div class="actions-cont more-block">
+            <a href="{% url 'actions' %}" class="more-block__link">Мероприятия</a>
+            <p class="dim">Что происходит в студии? Посмотри...</p>
+        </div>
+    </div>
+    <div class="social-networks cont">
+        <a href="#" class="vk link"><i class="fab fa-vk"></i></a>
+        <a href="#" class="fb link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="tw link"><i class="fab fa-twitter"></i></a>
+        <!-- <div class="social ggl"></div> -->
+    </div>
+    <div class="copyright cont">
+        <p><strong>2021</strong> Студия творческого развития "Это Правда"</p>
+    </div>
+</div>
+{% endblock %}

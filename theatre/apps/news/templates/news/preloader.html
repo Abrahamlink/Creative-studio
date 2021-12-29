@@ -1,0 +1,11 @@
+{% load static %}
+{% block preloader %}
+<link href="{% static 'news/preloader.css' %}" rel="stylesheet"/>
+<div class="preloader" id="preloader">
+    <div class="circle-out">
+        <div class="circle-in">
+            <div class="circle-in-in"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'news/index.html' %}
+{% load static %}
+{% block title %}Цвета и шрифты{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'category/color_scheme.css' %}">
+<div class="container">
+    <!-- "" -->
+    <div class="row">
+        <h1 class="display-4">Colors</h1>
+        <div class="my-colors">
+            {% for color in colors %}
+                <div class="color">
+                    <p>{{ color }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- END "COLORS" -->
+
+    <!-- "FONTS" -->
+    <div class="row">
+        <h1 class="display-4">Fonts</h1>
+        <div class="fonts">
+            {% for font in fonts %}
+                <div class="font">
+                    <p class="font-example">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Reiciendis commodi excepturi, minus doloremque ullam omnis?<br>
+                        Теплый ясный день стоял на Тисовой улице когда Гарри, умирая от зноя прятался 
+                        за терновым кустом</p><br>
+                    <p class="font-name"><strong>font-family: </strong> <span>'{{ font }}'</span>, 'sans-serif'</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- END "FONTS" -->
+
+</div>
+
+{% endblock %}
