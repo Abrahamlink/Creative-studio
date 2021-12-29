@@ -53,3 +53,18 @@ def send_mail_latter(request):
     else:
         return HttpResponse('Неверный запрос.')
     return render(request, template, {'form': form})
+
+
+def render_colors_and_fonts_from_site(request):
+    template = 'category/color_scheme.html'
+    colors_list = ['#ba2b18', '#1b1b1b', '#282828', '#353535', '#cbcbcb',
+                   '#cbcbcb80', '#333333', '#4949ac', 'green', '#57575780',
+                   '#dcdcdc', '#7a7a7a', '#818181', '#6d6d6d4d'
+                   ]
+    fonts_list = ['Roboto', 'Arial', 'Helvetica', 'sans-serif', 'Oswald',
+                  'Montserrat', 'Tenor Sans']
+    context = {
+        'colors': sorted(colors_list),
+        'fonts': sorted(fonts_list)
+    }
+    return render(request, template, context)
