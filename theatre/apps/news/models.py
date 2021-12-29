@@ -2,6 +2,8 @@ from django.db import models
 from tinymce import models as mce_models
 from transliterate import translit
 
+from django.utils import timezone
+
 
 def upload_location(instance, filename):
     return "%s/%s" % ('video', translit(filename, 'ru', reversed=True))
@@ -9,7 +11,7 @@ def upload_location(instance, filename):
 
 class NewsPost(models.Model):
     title = models.CharField('Название поста', max_length=50)
-    pubdate = models.DateField('Дата события')
+    pubdate = models.DateTimeField('Дата и время события')
     register_date = models.DateField(auto_now=True)
     studio_name = models.CharField('Название студии (если это "новость")', max_length=150, blank=True, default='Текущая')
     text = mce_models.HTMLField('Текст статьи')
@@ -22,6 +24,9 @@ class NewsPost(models.Model):
 
     def display_type_name(self):
         return ', '.join([t['title'] for t in self.type.values()])
+
+    def was_published_recently(self):
+        return self.pubdate >= (timezone.now() - timezone.timedelta(days=7))
 
     class Meta:
         verbose_name = 'Новостной пост'
