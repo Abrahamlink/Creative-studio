@@ -8,7 +8,7 @@ from .forms import CommentForm
 
 def all_news_data(request):
     template = loader.get_template('news/news.html')
-    all_news = NewsPost.objects.all()
+    all_news = NewsPost.objects.order_by('-pubdate')
     context = {'data': []}
     for post in all_news:
         context['data'].append([post, len(Comment.objects.filter(post=post))])
@@ -53,7 +53,8 @@ def post_data(request, post_id):
 def gallery_of_different_images(request):
     template = 'news/gallery.html'
     all_images = [img.image.url for img in ImagePost.objects.filter(id=0) if img.image.name != '']
-    context = {'images': all_images}
+    all_tags = Tag.objects.all()
+    context = {'images': all_images, 'tags': all_tags}
     return render(request, template, context)
 
 
@@ -67,8 +68,8 @@ def render_json_with_images_paths(request, tag):
     try:
         tag_obj = Tag.objects.get(title=tag).images.all().values('image')
     except Exception as ex:
-        print(ex)
-        tag_obj = [{'images': ''}]
+        print(f'ERROR == --{ex}--')
+        tag_obj = []
     return JsonResponse(list(tag_obj), safe=False)
 
 
