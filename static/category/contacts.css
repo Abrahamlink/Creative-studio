@@ -1,0 +1,225 @@
+/* Basic styles block */
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.contacts-wrapper {
+    min-height: 100vh;
+    padding-top: 35px;
+    padding-bottom: 40px;
+}
+/* endblock */
+
+/* Title styles block*/
+.page-title {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 300px;
+    border-bottom: 3px double #6d6d6d4d;
+    background-color: #1b1b1b;
+}
+.title-row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.sum-wrapper h1 {
+    font-size: 40px;
+    color: #cbcbcb;
+    text-align: center;
+}
+.nav-wrapper span {
+    color: #7a7a7a;
+    transition: .1s linear all;
+}
+.nav-wrapper a span:hover {
+    color: #cbcbcb80;
+}
+.nav-wrapper a {
+    text-decoration: none;
+}
+.nav-wrapper a span {
+    color: #cbcbcb;
+}
+.sep {
+    padding: 0px 3px;
+}
+/* endblock */
+
+
+/* Styles for cards of teachers */
+
+.cards-wrapper {
+    width: 100%;
+    background: #f1f1f1;
+    padding: 50px 3%;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 15px;
+}
+
+.card-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.teacher-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #333333;
+    border-radius: 7px 7px 0 0;
+    /* border: none; */
+}
+.avatar-wrapper {
+    width: 100%;
+    flex: 1;
+}
+.avatar-wrapper a {
+    width: 100%;
+    height: 100%;
+}
+.avatar-wrapper img {
+    width: 100%;
+    height: 350px;
+    border-radius: 7px 7px 0 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* containers with text inforantion */
+.info-wrapper {
+    flex: 1;
+    color: #dcdcdc;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.info-wrapper p {
+    font-family: 'Montserrat', 'sans-serif';
+}
+.info-wrapper .name-wrapper p {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1em;
+}
+.info-wrapper .status-wrapper p {
+    font-size: 12px;
+    margin: 5px 0 0 0;
+}
+.info-wrapper .description {
+    width: 100%;
+    padding: 15px 0 0 0;
+    overflow: hidden;
+}
+.info-wrapper .description p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    font-size: 14px;
+    margin: 0;
+}
+.card-wrapper .how_to_call {
+    font-size: 14px;
+    color: white;
+    padding: 10px 15px;
+    background: #333333;
+    border-radius: 0 0 7px 7px;
+    border-top: 3px double #6d6d6d4d;
+}
+.card-wrapper .how_to_call p {
+    font-size: 12px;
+    margin: 0;
+}
+.how_to_call > div {
+    display: flex;
+    align-items: center;
+}
+
+/* styling button */
+.send_letter {
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.letter_redirect {
+    background-color: #ba2b18;
+    box-shadow: 0px 7px 0px #ba2b1880;
+    color: #dcdcdc;
+    border-radius: 100px;
+    padding: 10px 1em;
+    margin: 0px auto;
+    margin-top: 10px;
+    transition: .2s linear all;
+    font-size: 28px;
+    position: relative;
+    top: 0;
+}
+.letter_redirect:hover {
+    box-shadow: 0px 3px 0px #ba2b1880;
+    color: #dcdcdc;
+    text-decoration: none;
+    top: 4px;
+}
+
+/* alternative */
+
+.alternative-block {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+.alternative-block strong {
+    font-size: 20px;
+}
+/* end add... */
+
+@media (max-width: 769px) {
+    /* .cards_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px 10px;
+    } */
+    .cards-wrapper {
+        padding: 16px 2%;
+        display: grid;
+        grid-gap: 1em;
+        grid-template-columns: 1fr;
+        border-radius: 0;
+    }
+    .cards_wrapper .card_wrapper {
+        background-color: #313131;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-basis: 30%;
+        flex-direction: column;
+        border-radius: 0px 0px 7px 7px;
+        border: none;
+    }
+
+    .send_letter {
+        padding: 16px 0;
+    }
+}
+
+@media (max-width: 376px) {
+    .contacts-wrapper {
+        min-height: 10vh;
+        padding: 16px 0;
+    }
+    
+}
