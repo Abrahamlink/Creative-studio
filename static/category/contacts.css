@@ -5,8 +5,7 @@
 }
 .contacts-wrapper {
     min-height: 100vh;
-    padding-top: 35px;
-    padding-bottom: 40px;
+    padding: 40px 0;
 }
 /* endblock */
 
@@ -61,6 +60,7 @@
     grid-gap: 2em;
     grid-template-columns: repeat(3, 1fr);
     border-radius: 15px;
+    margin-bottom: 40px;
 }
 
 .card-wrapper {
@@ -145,6 +145,33 @@
     display: flex;
     align-items: center;
 }
+
+/* Map Stylng */
+
+.map-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 3%;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+}
+.map {
+    /* border: 2px solid #7a7a7a; */
+    box-shadow: 0 0 20px #33333380;
+    width: auto;
+}
+.map__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 10px;
+}
+
+/* End map styling */
+
 
 /* styling button */
 .send_letter {
