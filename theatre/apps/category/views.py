@@ -47,11 +47,12 @@ def send_mail_latter(request):
             except Exception as ex:
                 print(ex)
                 return HttpResponse('<h1 style="text-align: center;">Ошибка в теле письма.</h1>'
-                                    '<h4 style="text-align: center;">Для отправки нужен <span style="color: blue;">Gmail</span></h4>'
+                                    '<h4 style="text-align: center;">Для отправки нужен <span style="color: '
+                                    'blue;">Gmail</span></h4> '
                                     '<p style="text-align: center;">...или вы просто ввели неверный пароль</p>')
             return redirect('contacts')
     else:
-        return HttpResponse('Неверный запрос.')
+        return HttpResponse('Неверный запрос')
     return render(request, template, {'form': form})
 
 
