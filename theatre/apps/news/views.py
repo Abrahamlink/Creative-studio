@@ -79,11 +79,12 @@ def render_json_with_images_paths(request, tag):
 
 def actions(request):
     template = 'news/actions.html'
+    context = {}
     try:
         all_actions = ActionType.objects.get(title="Мероприятие").actions.all()
     except Exception as e:
         print(e)
-        all_actions = []
+        all_actions = False
     return render(request, template, {'all_actions': all_actions})
 
 
