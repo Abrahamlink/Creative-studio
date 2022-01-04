@@ -84,7 +84,7 @@ def actions(request):
         all_actions = ActionType.objects.get(title="Мероприятие").actions.all()
     except Exception as e:
         print(e)
-        all_actions = False
+        all_actions = []
     return render(request, template, {'all_actions': all_actions})
 
 
