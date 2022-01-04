@@ -115,7 +115,7 @@ p.dim {
 /* endblock */
 
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 600px) {
     .f_wrapper {
         padding: 0 0 10px;
     }

@@ -350,7 +350,7 @@ p.text-justify {
     }
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 600px) {
     .content_block {
         margin: 12px 2%;
     }

@@ -25,7 +25,7 @@
 }
 
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 600px) {
     .scroll-block {
         bottom: 20px;
         right: 20px;

@@ -134,7 +134,7 @@ img.gallery-image:hover {
     }
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 600px) {
     .select_wrapper select {
         color: #1b1b1b;
         border-width: 2px;
