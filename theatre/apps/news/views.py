@@ -8,10 +8,14 @@ from .forms import CommentForm
 
 def all_news_data(request):
     template = loader.get_template('news/news.html')
-    all_news = NewsPost.objects.order_by('-pubdate')
     context = {'data': []}
-    for post in all_news:
-        context['data'].append([post, len(Comment.objects.filter(post=post))])
+    try:
+        all_news = NewsPost.objects.order_by('-pubdate')
+        for post in all_news:
+            context['data'].append([post, len(Comment.objects.filter(post=post))])
+    except Exception as ex:
+        context['data'] = []
+        print(ex)
     return HttpResponse(template.render(context, request))
 
 
