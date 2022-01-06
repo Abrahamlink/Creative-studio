@@ -11,11 +11,11 @@
 </div>
 <div class="navbar__block">
     <ul class="navbar__menu">
-        <li class="menu__item first_item"><a href="/category" class="menu_link" id="category">Главная</a></li>
-        <li class="menu__item"><a href="/news" class="menu_link" id="news">Новости</a></li>
-        <li class="menu__item"><a href="/news/actions" class="menu_link" id="actions">Мероприятия</a></li>
-        <li class="menu__item"><a href="/category/contacts" class="menu_link" id="contacts">Контакты</a></li>
-        <li class="menu__item"><a href="/news/images-gallery" class="menu_link" id="images-gallery">Галерея</a></li>
+        <li class="menu__item first_item"><a href="{% url 'main_page' %}" class="menu_link" id="category">Главная</a></li>
+        <li class="menu__item"><a href="{% url 'all_news' %}" class="menu_link" id="news">Новости</a></li>
+        <li class="menu__item"><a href="{% url 'actions' %}" class="menu_link" id="actions">Мероприятия</a></li>
+        <li class="menu__item"><a href="{% url 'contacts' %}" class="menu_link" id="contacts">Контакты</a></li>
+        <li class="menu__item"><a href="{% url 'gallery' %}" class="menu_link" id="images-gallery">Галерея</a></li>
         <li class="menu__item"><a href="/admin" class="menu_link">Admin</a></li>
     </ul>
 </div>

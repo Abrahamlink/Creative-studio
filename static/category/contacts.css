@@ -267,6 +267,13 @@
 }
 /* end add... */
 
+@media (max-width: 1000px) {
+    .cards-wrapper {
+        padding: 24px 10%;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media (max-width: 769px) {
     /* .cards_wrapper {
         display: flex;
@@ -278,7 +285,7 @@
         padding: 0;
     }
     .cards-wrapper {
-        padding: 24px 20%;
+        padding: 24px 25%;
         display: grid;
         grid-gap: 1em;
         grid-template-columns: 1fr;
@@ -342,12 +349,12 @@
     }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 600px) {
     .contacts-wrapper {
         min-height: 10vh;
     }
     .cards-wrapper {
-        padding: 24px 5%;
+        padding: 24px 7%;
         display: grid;
         grid-gap: 1em;
         grid-template-columns: 1fr;
