@@ -9,13 +9,9 @@
         <div class="letter_wrapper">
             <form method="post">
                 {% csrf_token %}
-                <!-- {{ form.user_name }}
-                {{ form.from_email }}
-                {{ form.subject }}
-                {{ form.message }} -->
                 {{ form.as_p }}
                 <div class="form-actions form-group">
-                    <button type="submit" class="form-control btn btn-success">Отправить</button>
+                    <button type="submit" class="form-control btn btn-danger">Отправить</button>
                 </div>
             </form>
         </div>
