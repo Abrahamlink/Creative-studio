@@ -63,6 +63,9 @@ db.sqlite3-journal
 **/migrations/**
 !**/migrations
 media/**
+static/admin
+static/django_tinymce
+static/tinymce
 
 # Flask stuff:
 instance/
