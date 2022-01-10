@@ -27,9 +27,9 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = 'django-insecure-0^rpcdqs_t1=2#2_li6own(+v3*l3u_z&s98p&_(hd3zwx37gg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['abrahamlink.pythonanywhere.com']
 
 
 # Application definition
@@ -119,6 +119,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# checking where are you
+try:
+    from .local_settings import *
+except ImportError:
+    print("It's production! ")
 
 
 # Static files (CSS, JavaScript, Images)
