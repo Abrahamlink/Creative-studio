@@ -41,7 +41,7 @@ a, a:hover {
 }
 
 .news-content-wrapper {
-    min-height: 100vh;
+    min-height: 70vh;
 }
 
 .nav-wrapper {
@@ -59,13 +59,13 @@ a, a:hover {
     color: #cbcbcb80;
 }
 
-.content {
+section.content {
     width: 100%;
     background-color: #dcdcdc;
     border-radius: 10px;
 }
 
-.post-card {
+article.post-card {
     width: 70%;
     padding: 70px 0 40px 0;
     margin: 20px auto;
@@ -156,4 +156,36 @@ a, a:hover {
 }
 .comments .comments_count {
     margin-left: 7px;
+}
+
+@media screen and (max-width: 769px) {
+    .page-content {
+        padding: 0 0 0 0;
+    }
+    section.content {
+        border-radius: 0;
+        padding-bottom: 30px;
+    }
+    article.post-card {
+        width: 100%;
+        padding: 35px 0 35px 0;
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    article.post-card {
+        padding: 10px 0 25px 0;
+    }
+    .post-content .post-title {
+        font-size: 18px;
+    }
+    .post-info-wrapper {
+        color: #1b1b1b;
+        font-size: 16px;
+        padding: 20px 15px 15px 15px;
+    }
+    .post-nav {
+        margin-top: 0px;
+    }
 }
