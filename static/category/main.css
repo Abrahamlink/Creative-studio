@@ -39,7 +39,7 @@ p.text-justify {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 #first {
     margin-top: 35px;
