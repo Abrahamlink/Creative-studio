@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
-# from django.template import loader
 from django.http import HttpResponse
 from .models import Teacher
-from django.core.mail import send_mail, BadHeaderError
 from .forms import EmailLetterForm
-from django.conf import settings
 from email.mime.text import MIMEText
 from .email_data import data
 import smtplib
