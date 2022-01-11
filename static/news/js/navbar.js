@@ -3,7 +3,7 @@ current_link = current_link.split('/')
 console.log(current_link)
 
 
-if (current_link.indexOf('#') > -1) {
+while (current_link.indexOf('#') > -1) {
     current_link.splice(current_link.indexOf('#'), 1)
 }
 
@@ -17,8 +17,20 @@ console.log(current_link)
 nav_list = $('.menu_link')
 console.log(nav_list)
 for (var i = 0; i < nav_list.length; i += 1) {
-    if (current_link[current_link.length - 1] == nav_list[i].id) {
+    last_path = current_link[current_link.length - 1]
+    prelast_path = current_link[current_link.length - 2]
+    if (last_path == nav_list[i].id) {
         nav_list[i].classList.add('activate')
+    }
+    if (last_path.split('_')[0] == 'N') {
+        if (prelast_path == nav_list[i].id) {
+            nav_list[i].classList.add('activate')
+        }
+    }
+    if (last_path.split('_')[0] == 'post') {
+        if (prelast_path == nav_list[i].id) {
+            nav_list[i].classList.add('activate')
+        }
     }
 }
 
