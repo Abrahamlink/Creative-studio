@@ -102,20 +102,15 @@
                 {% if comments|length == 0 %}
                     <h5>Пока нет комментариев...</h5>
                 {% else %}
-                    <h3>Комментарии</h3>
+                    <!-- with bootstrap -->
                     {% for comment in comments %}
-                        <div class="comment_wrapper">
-                            <div class="comment">
-                                <div class="name_wrapper">
-                                    <span class="marker"><i class="fas fa-comment-alt comment_icon"></i></span>
-                                    <p class="author_plus_date"><span class="username">{{ comment.author }}</span><span class="comment_date">{{ comment.pubdate }}</span></p>
-                                </div>
-                                <div class="text-wrapper">
-                                    <div class="comment_text">{{ comment.text|safe }}</div>
-                                </div>
-                            </div>
+                        <div class="comment-container alert alert-warning">
+                            <p class="author">{{ comment.author|truncatechars:15 }}</p>
+                            <div class="text">{{ comment.text|safe }}</div>
+                            <p class="date">{{ comment.pubdate }}</p>
                         </div>
                     {% endfor %}
+                    <!-- ______________ -->
                 {% endif %}
             </div>
         </aside>
