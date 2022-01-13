@@ -3,14 +3,21 @@
 {% block title %}{{ data.title }}{% endblock %}
 {% block content %}
 <link href="{% static 'news/post.css' %}" rel="stylesheet"/>
-<div class="page_content">
-    <div class="wrapper">
-        <div class="container">
-            <div class="button">
-                <h3 class="mt-5 mb-5"><a href="{% url 'all_news' %}" class="back">Новости</a></h3>
-            </div>
+<div class="page-title">
+    <div class="title-row wrapper">
+        <div class="sum-wrapper">
+            <h1 class="title-text display-4">Новости</h1>
+        </div>
+        <div class="nav-wrapper">
+            <a href="{% url 'main_page' %}"><span class="main-page-link">Главная</span></a>
+            <span class="sep">–</span>
+            <a href="{% url 'actions' %}"><span>Новости</span></a>
+            <span class="sep">–</span>
+            <span class="current-page underlined">{{ data.title }}</span>
         </div>
     </div>
+</div>
+<div class="page_content">
     <div class="wrapper">
         <section class="content">
             <div class="post">
@@ -77,9 +84,6 @@
 <!-- Menu right -->
 
         <aside class="search">
-            <div class="search_wrapper">
-
-            </div>
             <div class="pubs_wrapper">
 
                 <h4>Последние публикации</h4>
@@ -94,6 +98,7 @@
 
             </div>
             <div class="comments_wrapper">
+                <h4>Комментарии</h4>
                 {% if comments|length == 0 %}
                     <h5>Пока нет комментариев...</h5>
                 {% else %}
@@ -113,47 +118,8 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            <!-- <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                <a href="{% url 'all_news' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                  <i class="bi bi-window-sidebar" width="40" height="32"><use xlink:href="#bootstrap"></use></i>
-                  <span class="fs-4">Sidebar</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
-                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link link-dark">
-                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link link-dark">
-                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                      Orders
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link link-dark">
-                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                      Products
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link link-dark">
-                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                      Customers
-                    </a>
-                  </li>
-                </ul>
-                <hr>
-              </div> -->
         </aside>
+
     </div>
 </div>
 {% endblock %}

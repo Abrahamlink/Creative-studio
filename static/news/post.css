@@ -9,6 +9,56 @@ body {
     background-image: none;
 }
 
+
+/* block title */
+
+.page-title {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 300px;
+    border-bottom: 3px double #6d6d6d4d;
+    background-color: #1b1b1b;
+}
+.title-row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.sum-wrapper h1 {
+    font-size: 40px;
+    color: #cbcbcb;
+    text-align: center;
+}
+
+.title-row .nav-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.nav-wrapper span {
+    color: #7a7a7a;
+    transition: .1s linear all;
+}
+.nav-wrapper a span:hover {
+    color: #cbcbcb80;
+}
+.nav-wrapper a {
+    text-decoration: none;
+}
+.nav-wrapper a span {
+    color: #cbcbcb;
+}
+.sep {
+    padding: 0px 3px;
+}
+/* endblock title */
+
+
 .page_content {
     padding: 55px 30px 40px 30px;
 }
@@ -17,7 +67,6 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     display: flex;
-    
 }
 
 .content {
@@ -37,12 +86,8 @@ body {
     text-decoration: none;
     color: #353535;
 }
-.button h3::before {
-    content: '<';
-    color: #353535;
-}
 .button .back:hover, .button h3:hover::before {
-    color: #ba2b18;
+    color: #E35764;
 
 }
 
@@ -197,11 +242,11 @@ body {
 /* Search bar */
 .search {
     flex: 1;
-    padding-left: 65px;
+    padding-left: 55px;
 }
 
 .pubs_wrapper h4 {
-    font-size: 22px;
+    font-size: 24px;
     margin: 20px 0 30px 0 ;
 }
 .pubs_wrapper .list_of_pubs {
@@ -288,3 +333,67 @@ body {
 .list_of_pubs a:hover {
     color: cornflowerblue !important;
 } */
+
+
+
+/* Media reqs */
+
+@media screen and (max-width: 769px) {
+    .page_content {
+        padding: 18px;
+    }
+    .wrapper {
+        flex-direction: column;
+        width: 100%;
+    }
+    .content {
+        margin-bottom: 30px;
+    }
+
+    .search {
+        padding-left: 0;
+        width: 100%;
+    }
+    .pubs_wrapper {
+        margin-bottom: 30px;
+    }
+    .pubs_wrapper h4 {
+        font-size: 42px;
+        margin: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .pubs_wrapper .list_of_pubs {
+        list-style: disc;
+        padding: 0 18px;
+    }
+    .list_of_pubs {
+        color: rgb(122, 122, 122);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .list_of_pubs .pub_link {
+        margin-bottom: 10px;
+        transition: 200ms ease-in;
+        color: #7a7a7a;
+        text-decoration: none;
+    }
+    .list_of_pubs .pub_link:hover {
+        color: #E35764;
+    }
+    .pub_link span {
+        font-size: 1em;
+        line-height: 1em;
+    }
+    .comments_wrapper h4 {
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .comments_wrapper h5 {
+        margin-bottom: 15px;
+    }
+}
+
+/* End media */
