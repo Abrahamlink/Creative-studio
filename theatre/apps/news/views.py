@@ -10,7 +10,7 @@ def all_news_data(request):
     template = loader.get_template('news/news.html')
     context = {'data': []}
     try:
-        all_news = NewsPost.objects.order_by('-pubdate')
+        all_news = ActionType.objects.get(title='Новость').actions.order_by('-pubdate')
         for post in all_news:
             context['data'].append([post, len(Comment.objects.filter(post=post))])
     except Exception as ex:
@@ -20,11 +20,10 @@ def all_news_data(request):
 
 
 def post_data(request, post_id):
-    print('hello')
     template = 'news/post.html'
     data_from_post = NewsPost.objects.get(id=post_id)
     images = ImagePost.objects.filter(product=data_from_post)
-    last_five_pubs = [(i.title, i.id) for i in NewsPost.objects.all()[:5]]
+    last_five_pubs = [(i.title, i.id) for i in ActionType.objects.get(title='Новость').actions.order_by('-pubdate')[:5]]
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -82,16 +81,16 @@ def actions(request):
     context = {}
     try:
         all_actions = ActionType.objects.get(title="Мероприятие").actions.all()
+        context['all_actions'] = all_actions
     except Exception as e:
         print(e)
         all_actions = []
-    return render(request, template, {'all_actions': all_actions})
+    return render(request, template, context)
 
 
 def action_view(request, action_id):
     template = 'news/action.html'
     action = NewsPost.objects.get(id=action_id)
-
     return render(request, template, {'action': action})
 
 
