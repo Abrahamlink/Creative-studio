@@ -36,7 +36,7 @@
                                 <div class="post-content">
                                     <h2 class="post-title"><a href="post_{{ post.0.id }}" class="post-link">{{ post.0.title }}</a></h2>
                                     <p class="post-meta">
-                                        <span class="date">{{ post.0.pubdate.day }}.{{ post.0.pubdate.month }}.{{ post.0.pubdate.year }}</span>
+                                        <span class="date">{{ post.0.pubdate|date:'F d Y' }}</span>
                                         <span class="sep">|</span>
                                         <a href="#" class="category tag">Новости</a><span style="color: rgb(100, 100, 100);">, </span>  
                                         <a href="#" class="category tag">{{ post.0.studio_name }}</a>
