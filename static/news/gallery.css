@@ -133,8 +133,8 @@ img.gallery-image:hover {
         grid-template-columns: 1fr 1fr;
         grid-column-gap: .1vw;
         grid-row-gap: .1vh;
-        padding: 16px 2%;
         min-height: 50vh;
+        padding: 0;
     }
     .select_wrapper {
         margin: 16px 0 !important;
