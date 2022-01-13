@@ -31,11 +31,11 @@ def post_data(request, post_id):
             try:
                 comment = _move_data_from_form_to_comment_model(form, comment, data_from_post)
                 comment.save()
-                return redirect('all_news')
+                return redirect('one_post', post_id)
             except ChildProcessError as ex:
                 print('ERROR: incorrect data', ex, sep='\n')
     form = CommentForm()
-    comments = Comment.objects.filter(post=data_from_post)[:5]
+    comments = Comment.objects.filter(post=data_from_post).order_by('-pubdate')[:5]
     for img in images:
         try:
             img.video = _set_youtube_link_normal(img.video, controls=False)

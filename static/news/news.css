@@ -114,14 +114,14 @@ article.post-card {
 }
 
 .post-content .post-title {
-    font-size: 22px;
+    font-size: 30px;
 }
 .post-title a {
     color: #333333;
 }
 
 .post-content .post-meta {
-    font-size: 13px;
+    font-size: 14px;
 }
 .post-content .post-meta a {
     text-decoration: underline;
@@ -136,16 +136,16 @@ article.post-card {
 
 
 .post-nav {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 .post-nav .more-info a {
-    font-size: 14px;
+    font-size: 18px;
 }
 .post-nav .more-info, .comments {
-    font-size: 16px;
+    font-size: 18px;
 }
 .more-info a::after {
     content: '>';
@@ -156,6 +156,18 @@ article.post-card {
 }
 .comments .comments_count {
     margin-left: 7px;
+}
+
+@media screen and (max-width: 1000px) {
+    .post-content .post-title {
+        font-size: 24px;
+    }
+    .post-nav .more-info a {
+        font-size: 16px;
+    }
+    .post-nav .more-info, .comments {
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 769px) {
@@ -183,9 +195,11 @@ article.post-card {
     .post-info-wrapper {
         color: #1b1b1b;
         font-size: 16px;
-        padding: 20px 15px 15px 15px;
+        padding: 20px 7px 0px 12px;
     }
+    
     .post-nav {
         margin-top: 0px;
     }
+    
 }

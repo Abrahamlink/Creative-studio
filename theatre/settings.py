@@ -122,6 +122,10 @@ USE_TZ = True
 
 
 # checking where are you
+"""
+When you are in production, 'local_settings' file won't be there (only on local computer) 
+That's because u can set DEBUG=False and add your host in ALLOWED_HOSTS 
+"""
 try:
     from .local_settings import *
 except ImportError:
