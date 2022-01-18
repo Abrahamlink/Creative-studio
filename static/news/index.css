@@ -14,6 +14,7 @@ strong::selection, span::selection, a::selection, b::selection, div::selection {
 :active, :hover, :focus {
     outline: none !important;
     outline-offset: 0 !important;
+    text-decoration: none !important;
 }
 .form-control {
     outline: none;
