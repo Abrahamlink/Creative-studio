@@ -4,7 +4,7 @@ a, a:hover {
     transition: .3s;
 }
 
-.sep {
+/* .sep {
     padding: 0px 3px;
 }
 
@@ -29,11 +29,11 @@ a, a:hover {
     margin: 0;
     font-size: 40px;
     color: #cbcbcb;
-}
+} */
 .wrapper {
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
-}
+} 
 
 .page-content {
     padding-top: 35px;
@@ -44,20 +44,20 @@ a, a:hover {
     min-height: 70vh;
 }
 
-.nav-wrapper {
+/* .nav-wrapper {
     margin-top: 5px;
-}
+} */
 
-.nav-wrapper span {
+/* .nav-wrapper span {
     color: #cbcbcb80;
-}
-.nav-wrapper .main-page-link {
+} */
+/* .nav-wrapper .main-page-link {
     color: #cbcbcb;
     transition: .2s all;
-}
-.nav-wrapper .main-page-link:hover {
+} */
+/* .nav-wrapper .main-page-link:hover {
     color: #cbcbcb80;
-}
+} */
 
 section.content {
     width: 100%;

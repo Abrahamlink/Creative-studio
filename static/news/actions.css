@@ -8,8 +8,7 @@ a {
 }
 .block {
     width: 100%;
-    /* background-color: #f1f1f1; */
-    background-color: #f5daeb;
+    background-color: #f1f1f1;
     border-radius: 15px;
     padding: 50px;
     margin: 30px 0;
@@ -18,13 +17,14 @@ a {
 
 
 /* Title styles block*/
-.page-title {
+/* .page-title {
     width: 100%;
     margin: 0px;
     padding: 0px;
     height: 300px;
-    border-bottom: 3px double #6d6d6d4d;
-    background-color: #1b1b1b;
+    background-image: linear-gradient(180deg, transparent 0%, #f5daeb 100%);
+    box-shadow: 0 5px 15px #00000050;
+    color: #1f1f1f;
 }
 .title-row {
     height: 100%;
@@ -36,24 +36,27 @@ a {
 }
 .sum-wrapper h1 {
     font-size: 40px;
-    color: #cbcbcb;
 }
 .nav-wrapper span {
-    color: #7a7a7a;
     transition: .1s linear all;
+    font-weight: bold;
 }
 .nav-wrapper a span:hover {
-    color: #cbcbcb80;
+    color: #3d3d3d;
 }
 .nav-wrapper a {
     text-decoration: none;
 }
 .nav-wrapper a span {
-    color: #cbcbcb;
+    color: #1f1f1f;
+}
+.current-page {
+    color: #1f1f1fb1;
+    font-weight: lighter;
 }
 .sep {
     padding: 0px 3px;
-}
+} */
 /* endblock */
 
 
@@ -140,12 +143,16 @@ a {
 }
 .action_title a {
     color: #E35764;
+    transition: .2s linear all;
+}
+.action_title a:hover {
+    color: #9b1454;
 }
 .data_block .date-block {
     font-size: 22px;
 }
 .date-block .date {
-    color: #E79458
+    color: #57aae3
 }
 .date-block .time {
     color: #CF4FA3;

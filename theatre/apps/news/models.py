@@ -12,7 +12,7 @@ def upload_location(instance, filename):
 class NewsPost(models.Model):
     title = models.CharField('Название поста', max_length=50)
     pubdate = models.DateTimeField('Дата и время события')
-    register_date = models.DateField(auto_now=True)
+    register_date = models.DateField('Дата регистрации', auto_now=True)
     studio_name = models.CharField('Название студии (если это "новость")', max_length=150, blank=True, default='Текущая')
     text = mce_models.HTMLField('Текст статьи')
     small_description = mce_models.HTMLField('Небольшое описание мероприятия', blank=True)
@@ -24,13 +24,15 @@ class NewsPost(models.Model):
 
     def display_type_name(self):
         return ', '.join([t['title'] for t in self.type.values()])
+    display_type_name.short_description = 'action_type'
 
     def was_published_recently(self):
         return self.pubdate >= (timezone.now() - timezone.timedelta(days=7))
 
     class Meta:
-        verbose_name = 'Новостной пост'
-        verbose_name_plural = 'Новости'
+        verbose_name = 'Новостной пост или мероприятие'
+        verbose_name_plural = 'Новости и мероприятия'
+        ordering = ('title',)
 
 
 class ImagePost(models.Model):
@@ -50,7 +52,7 @@ class Comment(models.Model):
     text = models.TextField('Текст комментария')
     pubdate = models.DateTimeField(auto_now=True)
     author = models.CharField('Имя пользователя', max_length=50)
-    author_email = models.EmailField('Mail пользователя', max_length=120)
+    author_email = models.EmailField('Почта пользователя', max_length=120)
     site = models.URLField('Сайт', blank=True, null=True)
 
     class Meta:
@@ -70,11 +72,11 @@ class Tag(models.Model):
 
 
 class ActionType(models.Model):
-    title = models.CharField('Название типа', max_length=255)
+    title = models.CharField('Название типа события', max_length=255)
 
     class Meta:
-        verbose_name = 'Тип действия'
-        verbose_name_plural = 'Типы действий'
+        verbose_name = 'Тип события'
+        verbose_name_plural = 'Типы событий'
 
     def __str__(self):
         return self.title

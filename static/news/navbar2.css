@@ -51,18 +51,21 @@
     height: 100%;
     width: 100%;
     font-size: 15px;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    color: #dcdcdc;
-    padding: 0px 15px;
+    color: #1f1f1f;
+    padding: 0px 18px;
     text-decoration: none !important;
-    background: linear-gradient(45deg, #1b1b1b 50%, #ba2b18 50%);
+    background: linear-gradient(45deg, #e6e6e6 50%, #E35764 50%);
     background-size: 400%;
     transition: .2s ease-in-out all;
+    font-family: 'Montserrat', 'sans-serif' !important;
 }
 .menu_link:hover {
     color: #dcdcdc;
     background-position: 99%;
+    transition: .2s ease-in-out all;
 }
 .activate {
     color: #dcdcdc;
@@ -97,7 +100,7 @@
     }
     .burger span {
         content: '';
-        background: #ba2b18;
+        background: #E35764;
         position: absolute;
         width: 100%;
         height: 3px;
@@ -109,7 +112,7 @@
     .burger::before,
     .burger::after {
         content: '';
-        background: #ba2b18;
+        background: #E35764;
         position: absolute;
         width: 100%;
         left: 0;
@@ -130,17 +133,17 @@
         align-items: flex-start;
         justify-content: flex-start;
         position: fixed;
-        top: -140%;
-        left: 0;
+        top: 0;
+        right: -100%;
         width: 100%;height: 100%;
-        background-color: #1b1b1b;
+        background-color: #e6e6e6;
         margin: 60px 0 0 0;
         padding-top: 30px;
         transition: all .35s ease-out .15s;
         opacity: 0;
     }
     .navbar__block.active {
-        top: 0;
+        right: 0;
         opacity: 1;
     }
     .index_logo a.logo {

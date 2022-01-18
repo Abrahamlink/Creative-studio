@@ -4,11 +4,12 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'news/action.css' %}">
+<link rel="stylesheet" href="{% static 'category/page-bar.css' %}">
 
 <div class="page-title">
     <div class="title-row wrapper">
         <div class="sum-wrapper">
-            <h1 class="title-text display-4">Мероприятия</h1>
+            <h1 class="title-text display-4">{{ action.title }}</h1>
         </div>
         <div class="nav-wrapper">
             <a href="{% url 'main_page' %}"><span class="main-page-link">Главная</span></a>

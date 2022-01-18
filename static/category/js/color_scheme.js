@@ -2,7 +2,11 @@ color_blocks = $('.color p')
 for (i = 0; i != color_blocks.length; i++) {
     color = color_blocks[i].textContent
     block = color_blocks[i].parentNode
-    block.style.background = color
+    if (color == 'green') {
+        block.style.background = color
+    } else {
+    block.style.background = `#${color}`
+    }
 }
 
 

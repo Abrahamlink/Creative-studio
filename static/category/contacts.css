@@ -10,7 +10,7 @@
 /* endblock */
 
 /* Title styles block*/
-.page-title {
+/* .page-title {
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -46,7 +46,7 @@
 }
 .sep {
     padding: 0px 3px;
-}
+} */
 /* endblock */
 
 
@@ -246,6 +246,7 @@
     border-radius: 8px;
     border-style:ridge;
     border: 2px solid #bd2130;
+    box-shadow: 0px 3px 3px black;
 }
 .letter_redirect:hover {
     color: #dcdcdc;

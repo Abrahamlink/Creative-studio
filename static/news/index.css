@@ -11,14 +11,20 @@ strong::selection, span::selection, a::selection, b::selection, div::selection {
     color: #eeeeee !important;
     background-color: #be0026cc !important;
 }
-
+:active, :hover, :focus {
+    outline: none !important;
+    outline-offset: 0 !important;
+}
+.form-control {
+    outline: none;
+}
 body {
     margin: 0;
     padding: 0;
     font-size: 16px;
     height: 100%;
     /* background-image: url(../../media/main_background.jpg); */
-    background: url('../../media/view_base_4\(blured\,\ small\).png') repeat fixed;
+    /* background: url('../../media/view_base_4\(blured\,\ small\).png') repeat fixed; */
     /* font-family: Roboto, Arial, Helvetica, sans-serif; */
 }
 
@@ -35,12 +41,12 @@ main {
     padding-top: 90px;
     flex: 1 1 auto;
     position: relative;
+    background-image: linear-gradient(90deg, #f5daeb 0%, #e6e6e6 50%, #f5daeb 100%);
 }
 
 .header_wrapper {
     width: 100%;
-    /* background-color: #dcdcdc; */
-    background-color: #1b1b1b;
+    background-color: #e6e6e6;
     height: 90px;
     position: fixed;
     top: 0;
@@ -70,7 +76,7 @@ header.header {
 
 footer {
     width: 100%;
-    background-color: #1b1b1b;
+    background-color: #cbcbcb;
     border-top: 3px double #6e6e6e4d;
     /* border-top-width: 3px; */
 }

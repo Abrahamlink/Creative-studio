@@ -28,6 +28,13 @@ form p:nth-child(6) {
 }
 label {
     margin-bottom: 5px;
+    color: #1f1f1f;
+}
+input, textarea {
+    border-color: #00000030 !important;
+}
+.helptext {
+    display: none;
 }
 
 @media screen and (max-width: 769px) {
