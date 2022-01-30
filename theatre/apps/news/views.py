@@ -4,6 +4,7 @@ from django.template import loader
 from django.http import HttpResponse
 from .models import NewsPost, ImagePost, Comment, Tag, ActionType
 from .forms import CommentForm
+from category.models import Studio
 
 
 def all_news_data(request):
@@ -21,7 +22,13 @@ def all_news_data(request):
 
 def post_data(request, post_id):
     template = 'news/post.html'
+    studio = Studio.objects.get(pk=1)
     data_from_post = NewsPost.objects.get(id=post_id)
+    for_twitter = data_from_post.title.replace(' ', '%20')
+    links = {
+        'vk': f'https://vk.com/share.php?url=$LINK$&title={data_from_post.title}&utm_source=share2',
+        'twitter': f'https://twitter.com/intent/tweet?text={for_twitter}&url=$LINK$&utm_source=share2'
+    }
     images = ImagePost.objects.filter(product=data_from_post)
     last_five_pubs = [(i.title, i.id) for i in ActionType.objects.get(title='Новость').actions.order_by('-pubdate')[:5]]
     if request.method == 'POST':
@@ -49,6 +56,8 @@ def post_data(request, post_id):
         'last_pubs': last_five_pubs,
         'comments': comments,
         'form': form,
+        'studio': studio,
+        'links': links
     }
     return render(request, template, context)
 

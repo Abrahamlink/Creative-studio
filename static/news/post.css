@@ -157,8 +157,7 @@ body {
 .share .social_networks a > div:hover {
     opacity: .85;
 }
-.share .fa-vk, .share .fa-twitter, 
-.share .fa-google-plus-g, .share .fa-facebook-f {
+.social_networks svg {
     color: #fff;
     font-size: 20px;
 }
@@ -173,6 +172,12 @@ body {
 }
 .vk {
     background-color: #45668e;
+}
+.tik-tok {
+    background-color: #EE1D52;
+}
+.instagram {
+    background-color: #bc2a8d;
 }
 
 .form-comment-wrapper {

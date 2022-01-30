@@ -54,7 +54,7 @@
                     <a href="{% url 'all_news' %}">Новости,</a>
                     <a href="#">{{ data.studio_name }}</a>
                     <span class="sep">|</span>
-                    <a href="#" class="add_comm">Комментарии</a>
+                    <a href="#write-comment" class="add_comm">Комментарии</a>
                     {% if data.was_published_recently %}
                         <span class="sep">|</span>
                         <span class="very-new-post">Свежая!</span>
@@ -63,10 +63,11 @@
                 <div class="share">
                     <h3>Поделитесь ссылкой</h3>
                     <div class="social_networks">
-                        <a href="#"><div class="fb"><i class="fab fa-facebook-f"></i></div></a>
-                        <a href="#"><div class="twitter"><i class="fab fa-twitter"></i></div></a>
-                        <a href="#"><div class="google"><i class="fab fa-google-plus-g"></i></div></a>
-                        <a href="#"><div class="vk"><i class="fab fa-vk"></i></div></a>
+                        <a href="{{ studio.instagram_link }}" target="_blank"><div class="instagram"><i class="fab fa-instagram"></i></div></a>
+                        <a href="{{ studio.tiktok_link }}" target="_blank"><div class="tik-tok"><i class="fab fa-tiktok"></i></div></a>
+                        <a href="{{ links.twitter }}" target="_blank"><div class="twitter"><i class="fab fa-twitter"></i></div></a>
+                        <a href="{{ links.vk }}" target="_blank"><div class="vk"><i class="fab fa-vk"></i></div></a>
+                        <!-- <div class="ya-share2" data-services="vkontakte,twitter,facebook,messenger"></div> -->
                     </div>
                 </div>
                 <div class="form-comment-wrapper">
