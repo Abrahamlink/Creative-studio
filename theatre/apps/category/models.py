@@ -19,3 +19,18 @@ class Teacher(models.Model):
 
     def __str__(self):
         return f'{self.name} {self.father_name}'
+
+
+class Studio(models.Model):
+    title = models.CharField(max_length=150, blank=True)
+    phone_number = PhoneNumberField(blank=True, default='no_phone_number')
+    address = models.CharField(max_length=250, default='no_address')
+    vk_link = models.URLField(blank=True, default='#')
+    instagram_link = models.URLField(blank=True, default='#')
+    youtube_link = models.URLField(blank=True, default='#')
+    twitter_link = models.URLField(blank=True, default='#')
+    facebook_link = models.URLField(blank=True, default='#')
+    tiktok_link = models.URLField(blank=True, default='#')
+
+    def __str__(self):
+        return self.title
