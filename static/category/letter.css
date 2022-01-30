@@ -11,8 +11,8 @@
 }
 
 .letter_wrapper {
-    width: 60%;
-    margin: 50px auto;
+    width: 50%;
+    margin: 30px auto;
 }
 .letter_wrapper form {
     display: flex;
@@ -20,22 +20,37 @@
 }
 
 form p:nth-child(6) {
-    margin-bottom: 55px;
+    margin-bottom: 30px;
 }
 .form-group {
     width: 40%;
     margin: 0 auto;
 }
 label {
-    margin-bottom: 5px;
+    margin-bottom: 0 !important;
     color: #1f1f1f;
 }
 input, textarea {
     border-color: #00000030 !important;
+    font-size: 1.1rem !important;
 }
 .helptext {
     display: none;
 }
+
+/* password viewer styles */
+.password_viewer {
+    position: absolute;
+    display: inline-block;
+    top: 34px;
+    right: 10px;
+    cursor: pointer;
+}
+input[type="password"] {
+    font-size: 20px;
+}
+
+/* end */
 
 @media screen and (max-width: 769px) {
     .l_wrapper {

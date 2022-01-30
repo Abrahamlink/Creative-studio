@@ -10,7 +10,7 @@
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <div class="form-actions form-group">
+                <div class="form-actions form-group button_cleaner">
                     <button type="submit" class="form-control btn btn-danger">Отправить</button>
                 </div>
             </form>
