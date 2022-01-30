@@ -12,6 +12,17 @@ $(document).on('click', function(event) {
     }
 })
 
+$(document).ready(function() {
+    try {
+        image = document.getElementById('main-image')
+        h = image.naturalHeight
+        w = image.naturalWidth
+        console.log(`${w}x${h}`)
+    } catch {
+        console.log('hag')
+    }
+});
+
 
 // function popup() {
 //     cls = button.attr("href")

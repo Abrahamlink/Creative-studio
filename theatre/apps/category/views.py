@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Teacher
+from .models import Teacher, Studio
 from .forms import EmailLetterForm
 from email.mime.text import MIMEText
 from .email_data import data
@@ -15,7 +15,8 @@ def index(request):
 def contacts(request):
     template = 'category/contacts.html'
     teachers = Teacher.objects.all()
-    return render(request, template, {'teachers': teachers})
+    studio = Studio.objects.get(pk=1)
+    return render(request, template, {'teachers': teachers, 'studio': studio})
 
 
 def send_mail_latter(request):
@@ -39,7 +40,7 @@ def send_mail_latter(request):
             msg['Subject'] = subject + f' от {from_email}'
             try:
                 server.login(from_email, form.cleaned_data['password'])
-                server.sendmail(msg['From'], msg['To'], msg.as_string())
+                server.sendmail(from_email, data['default'], msg.as_string())
                 server.quit()
             except Exception as ex:
                 print(ex)

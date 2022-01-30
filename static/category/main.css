@@ -18,6 +18,7 @@ p.text-justify {
     margin-bottom: 12px;
     text-align: justify !important;
     font-size: 18px !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 
@@ -69,7 +70,7 @@ p.text-justify {
 }
 
 .content_block {
-    margin: 60px 8%;
+    margin: 50px 8%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,6 +139,7 @@ p.text-justify {
 .about-list .list-group-item {
     cursor: pointer;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 
@@ -174,6 +176,7 @@ p.text-justify {
     font-weight: 500;
     /* background-color: rgb(207, 207, 207); */
     text-align: justify;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .grid-about-wrapper .icon-block {
@@ -204,41 +207,39 @@ p.text-justify {
 
 .after_click {
     display: none;
-    padding: 13px;
+    padding: 13px 20px;
+    padding-top: 25px;
     border-radius: 7px;
     background-color: #353535;
     color: #eeeeee;
     position: absolute;
-    left: 2%;
-    right: 2%;
-    top: 30%;
+    top: 40%;
     text-align: justify;
 }
 .after_click p {
     margin: 0;
     padding: 0;
     font-size: 15px;
+    font-family: 'Montserrat', sans-serif !important;
 }
 .close {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     /* background: #fff; */
     position: absolute;
-    top: -10px;
-    right: -17px;
+    top: 4px;
+    right: 3px;
     opacity: .9;
 }
 .close::after, .close::before {
     content: '';
     position: absolute;
-    background: rgb(179, 0, 0);
-    box-shadow: 0 0 5px #ececec,
-                0 0 10px #cccccc99;
-    width: 17px;
-    height: 3px;
-    top: 0;
-    right: 0;
+    background: #bd2130;
+    width: 20px;
+    height: 2px;
+    top: 11px;
+    right: 4px;
     opacity: 1;
 }
 .close::after {
@@ -249,8 +250,8 @@ p.text-justify {
 }
 
 .activator {
-    color:darkred !important;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 

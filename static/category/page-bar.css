@@ -58,5 +58,11 @@
         background-image: none;
     }
 }
+@media screen and (max-width: 500px) {
+    .sum-wrapper h1 {
+        font-size: 48px;
+        text-align: center;
+    }
+}
 
 /* endblock title */
