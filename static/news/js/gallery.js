@@ -21,6 +21,13 @@ function GalleryFiller() {
 
 GalleryFiller()
 
+// $(document).ready(function() {
+//     image = document.getElementById('main-image')
+//     h = image.naturalHeight
+//     w = image.naturalWidth
+//     console.log(`${w}x${h}`)
+// });
+
 // function CheckSizesOfImages() {
 //     let images = $('.gallery-image')
 //     console.log(images)

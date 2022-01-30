@@ -72,18 +72,35 @@ p.dim {
 /* endblock */
 
 /* Block with social networks */
-.vk svg, .fb svg, .tw svg {
+.link svg {
     color: #1b1b1b;
+    transition: linear .1s all;
 }
 .vk:hover {
     background-color: #45668e;
 }
+
 .fb:hover {
     background-color: #1877f2;
 }
-.tw:hover {
-    background-color: #1da1f2;
+.fb:hover svg {
+    color: #fff; 
 }
+
+.ig:hover {
+    background-color: #bc2a8d;
+}
+.ig:hover svg {
+    color: #fff;
+}
+
+.tk:hover {
+    background-color: #69C9D0;
+}
+.tk:hover svg {
+    color: #EE1D52; 
+}
+
 .link {
     display: flex;
     align-items: center;
