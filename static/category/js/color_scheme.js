@@ -5,7 +5,7 @@ for (i = 0; i != color_blocks.length; i++) {
     if (color == 'green') {
         block.style.background = color
     } else {
-    block.style.background = `#${color}`
+        block.style.background = `#${color}`
     }
 }
 
@@ -16,3 +16,16 @@ for (i = 0; i != font_names.length; i++) {
     console.log(font_names[i].textContent);
     $(font_exemples[i]).css("font-family", font_names[i].textContent)
 }
+
+$('.pleasure').click(function() {
+    $.ajax({
+        url: 'studio',
+        type: 'get',
+        data: {
+            button_text: $(this).text()
+        },
+        success: function(response) {
+            console.log('haeu')
+        }
+    })
+})

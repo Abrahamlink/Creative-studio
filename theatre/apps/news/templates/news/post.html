@@ -13,7 +13,7 @@
         <div class="nav-wrapper">
             <a href="{% url 'main_page' %}"><span class="main-page-link">Главная</span></a>
             <span class="sep">–</span>
-            <a href="{% url 'actions' %}"><span>Новости</span></a>
+            <a href="{% url 'all_news' %}"><span>Новости</span></a>
             <span class="sep">–</span>
             <span class="current-page underlined">{{ data.title }}</span>
         </div>
@@ -50,9 +50,8 @@
                 <div class="info_after" id="write-comment">
                     <span class="date">{{ data.pubdate }}</span>
                     <span class="sep">|</span>
-                    <a href="#">Благотворительность,</a>
                     <a href="{% url 'all_news' %}">Новости,</a>
-                    <a href="#">{{ data.studio_name }}</a>
+                    <span>{{ data.studio_name }}</span>
                     <span class="sep">|</span>
                     <a href="#write-comment" class="add_comm">Комментарии</a>
                     {% if data.was_published_recently %}
@@ -61,7 +60,7 @@
                     {% endif %}
                 </div>
                 <div class="share">
-                    <h3>Поделитесь ссылкой</h3>
+                    <h3>Поделитесь в соц. сетях:</h3>
                     <div class="social_networks">
                         <a href="{{ studio.instagram_link }}" target="_blank"><div class="instagram"><i class="fab fa-instagram"></i></div></a>
                         <a href="{{ studio.tiktok_link }}" target="_blank"><div class="tik-tok"><i class="fab fa-tiktok"></i></div></a>
@@ -102,6 +101,7 @@
             </div>
             <div class="comments_wrapper">
                 <h4>Комментарии</h4>
+                <div id="all-comments-count" hidden>{{ comments_count }}</div>
                 {% if comments|length == 0 %}
                     <h5>Пока нет комментариев...</h5>
                 {% else %}
@@ -110,7 +110,7 @@
                         <div class="comment-container alert alert-warning">
                             <p class="author">{{ comment.author|truncatechars:15 }}</p>
                             <div class="text">{{ comment.text|safe }}</div>
-                            <p class="date">{{ comment.pubdate }}</p>
+                            <p class="date">{{ comment.pubdate|date:'j.m.Y' }}</p>
                         </div>
                     {% endfor %}
                     <!-- ______________ -->

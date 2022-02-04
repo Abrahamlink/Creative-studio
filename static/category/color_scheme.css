@@ -59,3 +59,49 @@ h1 {
 }
 
 /* END */
+
+/* TESTS */
+/* .test {
+    background-color: #fff;
+}
+
+.passport-icon {
+    width: auto;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    position: relative;
+}
+.detector-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -10px;
+    right: 44%;
+}
+.detector {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(135, 207, 235, 0.1);
+    border: 5px solid #353535;
+    border-radius: 50%;
+}
+.stick {
+    width: 40px;
+    height: 7px;
+    border-radius: 5px;
+    transform: rotate(39deg);
+    background-color: #353535;
+    position: absolute;
+    bottom: -10px;
+    right: 42%;
+} */
+/* END */

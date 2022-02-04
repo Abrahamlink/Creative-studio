@@ -99,6 +99,27 @@ i {
     margin-left: 0 !important;
 }
 
+
+/* addition styles */
+.loading-block {
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px 0;
+    display: none;
+}
+.loading-block__spinner {
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 3px solid #333;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spinner .7s linear infinite;
+}
+/* end */
+
+
 @media screen and (max-width: 769px) {
     .header_wrapper {
         height: 60px;

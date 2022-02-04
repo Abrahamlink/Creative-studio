@@ -44,7 +44,9 @@
                 {% endblock %}
             </footer>
         </div>
-        <script src="{% static 'news/js/jquery-3.6.0.min.js' %}"></script>
+        <!-- <script src="{% static 'news/js/jquery-3.6.0.min.js' %}"></script> -->
+        <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="{% static 'news/js/all.min.js' %}"></script>
         <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
         <script src="{% static 'news/js/navbar.js' %}"></script>
@@ -52,9 +54,30 @@
         <script src="{% static 'news/js/gallery.js' %}"></script>
         <script src="{% static 'news/js/preloader.js' %}"></script>
         <script src="{% static 'news/js/scrollUp.js' %}"></script>
+        <script src="{% static 'news/js/post.js' %}"></script>
+        <script src="{% static 'news/js/index.js' %}"></script>
         <script src="{% static 'category/js/main.js' %}"></script>
+        <script src="{% static 'category/js/letter.js' %}"></script>
         <script src="{% static 'category/js/color_scheme.js' %}"></script>
+        <script src="{% static 'news/js/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'news/js/infinite.min.js' %}"></script>
+        <script>
+            let infinite = new Waypoint.Infinite({
+                element: $('.infinite-container')[0],
+
+                offset: 'bottom-in-view',
+
+                onAfterPageLoad: function() {
+                    $('.loading-block').hide();
+                },
+                
+                onBeforePageLoad: function() {
+                    $('.loading-block').show();
+                },
+            })
+        </script>
         <script src="https://cdn.tiny.cloud/1/ss5gd7k6yjnsfmkmhnu4u390nyi8xe3r0bog1jpzaeed2aoy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="https://yastatic.net/share2/share.js" async></script>
         <script>
             tinymce.init({
                 selector: 'textarea.tiny',

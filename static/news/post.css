@@ -110,6 +110,10 @@ body {
 .info_after > a, .info_after > span {
     margin: 0px 3px;
 }
+.info_after .sep {
+    font-size: 16px;
+    color: #1b1b1b;
+}
 .info_after > a, .very-new-post {
     color: #454545;
     text-decoration: none;
@@ -141,7 +145,6 @@ body {
 .social_networks > a {
     display: flex;
     flex-direction: column-reverse;
-    
 }
 
 .share .social_networks a > div {
@@ -152,10 +155,11 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: .1 ease-out;
+    transition: .1s ease-out all;
 }
-.share .social_networks a > div:hover {
+.share .social_networks div:hover {
     opacity: .85;
+    transition: .1s ease-out all;
 }
 .social_networks svg {
     color: #fff;
@@ -280,6 +284,14 @@ body {
 
 
 /* Comments styles */
+
+.comments_wrapper {
+    overflow-y: auto;
+    height: 600px;
+}
+.comments_wrapper .hide {
+    opacity: 0;
+}
 .comments_wrapper h4 {
     font-size: 32px;
     margin-bottom: 25px;
@@ -287,7 +299,7 @@ body {
 }
 .comment-container {
     background-color: #f8e1d0;
-    padding: .75rem 1.75rem;
+    padding: .75rem 1.25rem;
 }
 .comment-container > div, .comment-container > p {
     display: flex;
@@ -297,9 +309,8 @@ body {
     margin: 0;
     color: #E35764;
     font-size: 16px;
-    margin: 0;
 }
-.date {
+.comment-container .date {
     font-size: 12px;
     color: #35353580;
     margin: 0;
@@ -312,6 +323,16 @@ body {
     color: #1b1b1b;
     font-size: 16px;
 }
+.comment-container:last-child {
+    margin-bottom: 20px;
+}
+
+#more-comment-loader {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+
 /* bruhstrap */
 
 /* End block comments */
@@ -392,7 +413,19 @@ body {
     .comments_wrapper h5 {
         margin-bottom: 15px;
     }
+    .post .addition_images_wrapper {
+        margin-bottom: 15px;
+    }
+    .post .info_after {
+        margin-bottom: 20px;
+    }
+    .share {
+        flex-direction: column;
+    }
+    .social_networks {
+        margin: 15px 0 5px 0;
 
+    }
     .share h3 {
         font-size: 36px;
     }

@@ -9,6 +9,29 @@ a:hover {
     text-decoration: none;
 }
 
+/* get back button */
+
+.get_back__link {
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 25px;
+    width: 45px;
+    height: 45px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    border: 5px solid #E79358;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #E79358;
+    font-size: 28px;
+}
+.get_back__link:hover {
+    border-color: #ea6e5e;
+}
+/* end */
+
 /* End */
 
 /* block title */
@@ -91,6 +114,9 @@ a:hover {
     max-width: 100%;
     max-height: 70vh;
     object-fit: contain;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #777;
 }
 
 .title-block {
@@ -123,14 +149,30 @@ a:hover {
 }
 .main_text-block p {
     text-align: justify;
+    margin: 0;
+    padding-bottom: 15px;
 }
 .main_text-block p, .main_text-block ul {
     font-size: 22px;
+}
+.main_text-block h1, 
+.main_text-block h2, 
+.main_text-block h3, 
+.main_text-block h4, 
+.main_text-block h5, 
+.main_text-block h6 {
+    margin: 20px 0 15px 0;
 }
 
 
 
 /* Media reqs */
+@media screen and (max-width: 1000px) {
+    .get_back__link {
+        display: none;
+    } 
+}
+
 @media screen and (max-width: 769px) {
     .block {
         width: 100%;

@@ -21,6 +21,7 @@ function GalleryFiller() {
 
 GalleryFiller()
 
+
 // $(document).ready(function() {
 //     image = document.getElementById('main-image')
 //     h = image.naturalHeight

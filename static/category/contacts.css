@@ -73,7 +73,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #333333;
+    /* background-color: #333333; */
+    background: linear-gradient(45deg, rgba(31,31,31,1) 0%, rgba(91,91,91,1) 70%, rgba(31,31,31,1) 100%);
     border-radius: 7px 7px 0 0;
     /* border: none; */
 }
@@ -187,6 +188,8 @@
 .meta__title {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     font-size: 36px;
     margin-bottom: 0;
 }
@@ -235,22 +238,20 @@
 }
 
 .letter_redirect {
-    background-color: #1b1b1b;
+    background-color: #1f1f1f;
     color: #dcdcdc;
     padding: 10px 1em;
-    margin: 0px auto;
-    margin-top: 25px;
+    margin: 10px auto;
     transition: .2s linear all;
     font-size: 18px;
     font-weight: 700;
-    border-radius: 8px;
+    border-radius: 5px;
     border-style:ridge;
     border: 2px solid #bd2130;
-    box-shadow: 0px 3px 3px black;
 }
 .letter_redirect:hover {
     color: #dcdcdc;
-    background-color: #1f1f1f;
+    background-color: rgba(31, 31, 31, 0.75);
     border-color: #c82333;
     text-decoration: none;
 }
@@ -304,7 +305,8 @@
     }
 
     .send_letter {
-        padding: 16px 0;
+        padding: 0 0 24px 0;
+        background-color: #f1f1f1;
     }
 
     .map-wrapper {
@@ -356,7 +358,7 @@
     .cards-wrapper {
         padding: 24px 10%;
         display: grid;
-        grid-gap: 1em;
+        grid-gap: 2em;
         grid-template-columns: 1fr;
         border-radius: 0;
         margin: 0;

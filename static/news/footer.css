@@ -46,6 +46,15 @@
     padding: 0 2px 5px 2px;
     border-bottom: 2px solid #1f1f1f;
 }
+.contacts__part .for-phones {
+    display: none;
+}
+.contacts__part .for-pk {
+    display: block;
+}
+.contacts__part .for-phones a {
+    color: #1f1f1f;
+}
 
 /* Block with links (navigation on site) */
 p.dim {
@@ -166,3 +175,12 @@ p.dim {
         text-align: center;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .contacts__part .for-phones {
+        display: block;
+    }
+    .contacts__part .for-pk {
+        display: none;
+    }
+} 
