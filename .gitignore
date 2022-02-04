@@ -66,6 +66,7 @@ media/**
 static/admin
 static/django_tinymce
 static/tinymce
+test.html
 
 # Flask stuff:
 instance/
