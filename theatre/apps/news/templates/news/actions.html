@@ -26,43 +26,27 @@
 <div class="container">
     {% if all_actions|length != 0 %}
     <div class="row block">
-        <div class="actions_wrapper">
+        <div class="actions_wrapper infinite-container">
             <!-- Мероприятия -->
             {% for action in all_actions %}
-                <div class="action">
-                    <!-- <div class="image_block">
-                        <a href="N_{{ action.id }}/">
-                            <div class="hoverer"><span>Read more...</span></div>
-                            <div class="image_container">
-                                <img src="{{ action.preview_image.url }}" alt="">
-                            </div>
-                        </a>
-                    </div> -->
+                <div class="action infinite-item">
                     <div class="data_block">
                         <div class="action_title"><a href="N_{{ action.id }}">{{ action.title }}</a></div>
                         <div class="date-block">
                             <span class="date">{{ action.pubdate|date:'D d M' }}</span>
                         </div>
-                        <!-- <div class="meta_container">
-                            <div class="meta_block">
-                                <div class="meta__link"><a href="{% url 'main_page' %}">Главная</a></div>
-                                <div class="meta__link"><a href="{% url 'actions' %}">Мероприятия</a></div>
-                                <div class="date"><span>{{ action.register_date.day }}.{{ action.register_date.month }}.{{ action.register_date.year }}</span></div>
-                            </div>
-                            <div class="navigation">
-                                <a href="N_{{ action.id }}" class="read_more">Читать дальше...</a>
-                                <div class="comments">
-                                    <i class="fas fa-comment"></i>
-                                    <span>0</span>
-                                </div>
-                            </div> 
-                        </div>-->
                         <div class="description_block"><p>{{ action.small_description|striptags|safe|truncatewords:30 }}</p></div>
                     </div>
                 </div>
             {% endfor %}
             <!-- Конец мероприятий -->
         </div>
+    </div>
+    {% if all_actions.has_next %}
+        <a class="infinite-more-link" href="?page={{ all_actions.next_page_number }}"></a>
+    {% endif %}
+    <div class="loading-block" style="display: none;">
+        <div class="loading-block__spinner"></div>
     </div>
     {% else %}
         <div class="alternative-block">

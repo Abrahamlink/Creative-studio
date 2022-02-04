@@ -2,22 +2,63 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import NewsPost, ImagePost, Comment, Tag, ActionType
 from .forms import CommentForm
 from category.models import Studio
 
 
 def all_news_data(request):
-    template = loader.get_template('news/news.html')
-    context = {'data': []}
+    template = 'news/news.html'
+    context = {'data': ''}
     try:
-        all_news = ActionType.objects.get(title='Новость').actions.order_by('-pubdate')
-        for post in all_news:
-            context['data'].append([post, len(Comment.objects.filter(post=post))])
+        all_news_posts = ActionType.objects.get(title='Новость').actions.order_by('-pubdate')
+        for_post_page_data = [[post, len(Comment.objects.filter(post=post))] for post in all_news_posts]
+        page = request.GET.get('page')
+        if page is None:
+            page = '1'
+        paginator = Paginator(for_post_page_data, 5)
+        try:
+            posts_data = paginator.page(int(page))
+        except PageNotAnInteger:
+            posts_data = paginator.page(1)
+        except EmptyPage:
+            posts_data = paginator.page(paginator.num_pages)
+        except Exception as _ex:
+            context['data'] = []
+            print(f'{_ex}')
+
+        context['data'] = posts_data
+        return render(request, template, context)
+
+        # all_news = all_news_posts
+        # for post in all_news[:3]:
+        #     context['data'].append([post, len(Comment.objects.filter(post=post))])
+        #
+        # number = 0
+        # next_page = 0
+        # if request.GET.get('page'):
+        #     count = len(all_news)
+        #     number = int(request.GET.get('page', 1))
+        #     if number == 0:
+        #         all_news = all_news[:3]
+        #     elif (count - number*paginate_by) >= paginate_by and number != 0:
+        #         all_news = all_news[number * paginate_by: number * paginate_by + paginate_by]
+        #     else:
+        #         all_news = all_news[number * paginate_by:]
+        #     context = {'data': []}
+        #     for post in all_news:
+        #         context['data'].append([post, len(Comment.objects.filter(post=post))])
+        #
+        # if (number + 1) * paginate_by < len(all_news_posts):
+        #     next_page = number + 1
+        # context['next'] = next_page
+        # return HttpResponse(template.render(context, request))
+
     except Exception as ex:
         context['data'] = []
         print(ex)
-    return HttpResponse(template.render(context, request))
+    return render(request, template, context)
 
 
 def post_data(request, post_id):
@@ -42,7 +83,7 @@ def post_data(request, post_id):
             except ChildProcessError as ex:
                 print('ERROR: incorrect data', ex, sep='\n')
     form = CommentForm()
-    comments = Comment.objects.filter(post=data_from_post).order_by('-pubdate')[:5]
+    comments = Comment.objects.filter(post=data_from_post)
     for img in images:
         try:
             img.video = _set_youtube_link_normal(img.video, controls=False)
@@ -54,10 +95,11 @@ def post_data(request, post_id):
         'data': data_from_post,
         'images': images,
         'last_pubs': last_five_pubs,
-        'comments': comments,
+        'comments': comments.order_by('-pubdate')[:5],
+        'comments_count': len(comments),
         'form': form,
         'studio': studio,
-        'links': links
+        'links': links,
     }
     return render(request, template, context)
 
@@ -85,15 +127,48 @@ def render_json_with_images_paths(request, tag):
     return JsonResponse(list(tag_obj), safe=False)
 
 
+def render_json_with_comments(request, post_id, comment_index):
+    cur_post = NewsPost.objects.get(pk=post_id)
+    comments = Comment.objects.filter(post=cur_post).order_by('-pubdate')
+    if (len(comments) - comment_index) > 5:
+        comments = comments[comment_index:comment_index + 5]
+    else:
+        comments = comments[comment_index:]
+    comments_data = []
+    for comment_object in comments:
+        comment = dict()
+        comment['author'] = comment_object.author
+        comment['text'] = comment_object.text
+        if comment_object.pubdate.month < 10:
+            month = f'0{comment_object.pubdate.month}'
+        else:
+            month = f'{comment_object.pubdate.month}'
+        comment['pubdate'] = f'{comment_object.pubdate.day}.{month}.{comment_object.pubdate.year}'
+        comments_data.append(comment)
+    return JsonResponse(comments_data, safe=False)
+
+
 def actions(request):
     template = 'news/actions.html'
     context = {}
     try:
         all_actions = ActionType.objects.get(title="Мероприятие").actions.all()
-        context['all_actions'] = all_actions
+        page = request.GET.get('page')
+        if page is None:
+            page = '1'
+        paginator = Paginator(all_actions, 10)
+        try:
+            posts_data = paginator.page(int(page))
+        except PageNotAnInteger:
+            posts_data = paginator.page(1)
+        except EmptyPage:
+            posts_data = paginator.page(paginator.num_pages)
+        except Exception as _ex:
+            context = {}
+            print(f'{_ex}')
+        context['all_actions'] = posts_data
     except Exception as e:
         print(e)
-        all_actions = []
     return render(request, template, context)
 
 
