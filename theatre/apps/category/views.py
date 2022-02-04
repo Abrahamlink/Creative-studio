@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.views.generic import View
 from .models import Teacher, Studio
 from .forms import EmailLetterForm
 from email.mime.text import MIMEText
@@ -71,3 +72,15 @@ def render_colors_and_fonts_from_site(request):
         'fonts': sorted(fonts_list)
     }
     return render(request, template, context)
+
+
+class MyAjaxView(View):
+    def get(self, request):
+        text = request.GET.get('button_text')
+        if _is_ajax(request):
+            return JsonResponse({'text': text}, status=200)
+        return render(request, 'category/test.html', None)
+
+
+def _is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
