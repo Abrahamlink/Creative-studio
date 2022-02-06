@@ -197,13 +197,16 @@ a:hover {
 }
 
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 450px) {
     .block {
         border-radius: 0;
         padding: 0 !important;
     }
     .image-block {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+    }
+    .image-block img {
+        border-radius: 0;
     }
     .title-block {
         width: 100%;

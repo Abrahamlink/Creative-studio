@@ -8,6 +8,11 @@
         <h2 class="display-4">Отправьте нам письмо</h2>
         <div class="letter_wrapper">
             <form method="post">
+                {% if error %}
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Warning!</strong> {{ error }}
+                    </div>
+                {% endif %}
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div class="form-actions form-group button_cleaner">

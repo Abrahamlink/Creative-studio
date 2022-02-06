@@ -3,7 +3,7 @@
 .page-title {
     width: 100%;
     margin: 0px;
-    padding: 0px;
+    padding: 8px;
     height: 300px;
     /* border-bottom: 3px double #6d6d6d4d; */
     background-image: linear-gradient(180deg, transparent 0%, #f5daeb 100%);
@@ -18,8 +18,13 @@
     justify-content: center;
     font-size: 14px;
 }
+.sum-wrapper {
+    width: 100%;
+    margin: 0 10px;
+}
 .sum-wrapper h1 {
     font-size: 60px;
+    word-wrap: break-word !important;
     text-align: center;
 }
 

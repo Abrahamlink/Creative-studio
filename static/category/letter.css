@@ -60,7 +60,9 @@ input[type="password"] {
         margin-top: 0;
         border-radius: 0;
     }
-
+    .l_wrapper h2 {
+        font-size: 3rem;
+    }
     .letter_wrapper {
         margin: 16px auto;
         width: 90%;

@@ -105,6 +105,11 @@ def post_data(request, post_id):
 
 
 def gallery_of_different_images(request):
+    """
+    Function which renders all images of posts like gallery
+    :param request:
+    :return render: page with Images Gallery
+    """
     template = 'news/gallery.html'
     all_images = [img.image.url for img in ImagePost.objects.filter(id=0) if img.image.name != '']
     all_tags = Tag.objects.all()

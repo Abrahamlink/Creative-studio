@@ -4,7 +4,7 @@ from django.views.generic import View
 from .models import Teacher, Studio
 from .forms import EmailLetterForm
 from email.mime.text import MIMEText
-from .email_data import data
+from .email_data import data, actual_data
 import smtplib
 
 
@@ -36,19 +36,19 @@ def send_mail_latter(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             msg = MIMEText(message)
-            msg['From'] = from_email
-            msg['To'] = data['default']
-            msg['Subject'] = subject + f' от {from_email}'
+            # msg['From'] = from_email
+            msg['From'] = actual_data['to_who']['mail']
+            msg['To'] = actual_data['to_who']['mail']
+            msg['Subject'] = f'"{subject}"' + f' от {from_email}'
             try:
-                server.login(from_email, form.cleaned_data['password'])
-                server.sendmail(from_email, data['default'], msg.as_string())
+                server.login(actual_data['to_who']['mail'], actual_data['to_who']['password'])
+                server.sendmail(actual_data['to_who']['mail'], actual_data['to_who']['mail'], msg.as_string())
                 server.quit()
             except Exception as ex:
                 print(ex)
-                return HttpResponse('<h1 style="text-align: center;">Ошибка в теле письма.</h1>'
-                                    '<h4 style="text-align: center;">Для отправки нужен <span style="color: '
-                                    'blue;">Gmail</span></h4> '
-                                    '<p style="text-align: center;">...или вы просто ввели неверный пароль</p>')
+                form = EmailLetterForm(request.POST)
+                error = ex
+                return render(request, template, {'form': form, 'error': error})
             return redirect('contacts')
     else:
         return HttpResponse('Неверный запрос')

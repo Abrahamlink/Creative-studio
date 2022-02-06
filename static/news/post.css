@@ -76,6 +76,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+.post .text_wrapper {
+    word-wrap: break-word;
+}
 
 .button {
     display: flex;
@@ -137,7 +140,9 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
+.share h3 {
+    text-align: center;
+}
 .share .social_networks {
     display: flex;
 }
@@ -253,14 +258,16 @@ body {
     flex: 1;
     padding-left: 55px;
 }
-
+.pubs_wrapper {
+    padding: 0;
+}
 .pubs_wrapper h4 {
     font-size: 24px;
     margin: 20px 0 30px 0 ;
 }
 .pubs_wrapper .list_of_pubs {
     list-style: '>> ';
-    padding-left: 10px;
+    padding: 0 20px;
 }
 .list_of_pubs {
     color: rgb(122, 122, 122);
@@ -333,26 +340,6 @@ body {
     text-align: center;
 }
 
-/* bruhstrap */
-
-/* End block comments */
-
-/* .list_of_pubs li a {
-    color:rgb(122, 122, 122)
-} */
-
-/* 
-.list_of_pubs a {
-    color: rgb(122, 122, 122);
-    font-size: 17px;
-    text-decoration: none;
-    transition: .3s ease-in;
-}
-.list_of_pubs a:hover {
-    color: cornflowerblue !important;
-} */
-
-
 
 /* Media reqs */
 
@@ -374,7 +361,7 @@ body {
     }
     .pubs_wrapper {
         margin-bottom: 30px;
-        padding-left: 30px;
+        padding-left: 0;
     }
     .pubs_wrapper h4 {
         font-size: 42px;
@@ -383,8 +370,8 @@ body {
         margin-bottom: 20px;
     }
     .pubs_wrapper .list_of_pubs {
-        list-style: disc;
-        padding: 0 18px;
+        list-style: none;
+        padding: 0;
     }
     .list_of_pubs {
         color: rgb(122, 122, 122);
@@ -393,7 +380,10 @@ body {
     }
     
     .list_of_pubs .pub_link {
-        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+        word-wrap: break-word;
+        margin-bottom: 15px;
         transition: 200ms ease-in;
         color: #7a7a7a;
         text-decoration: none;
@@ -436,13 +426,16 @@ body {
 
     .form-comment-wrapper {
         margin: 25px 0;
-        padding: 35px 15px 50px 15px;
+        padding: 25px;
         border: 4px solid #353535;
         border-radius: 20px;
     }
+    .form-comment-wrapper form {
+        padding: 0;
+    }
     .button-conf {
         margin-top: 20px;
-        padding: 12px 0;
+        padding: 8px 0;
     }
 }
 
