@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import sys
 from pathlib import Path
-from .apps.category.email_data import data
+from .apps.category.email_data import actual_data
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -151,8 +151,13 @@ MEDIA_ROOT = Path(BASE_DIR / 'media/')
 
 
 # Email sends
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-RECIPIENT_EMAIL = data['host_email']
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = actual_data['to_who']['mail']
+EMAIL_HOST_PASSWORD = actual_data['to_who']['password']
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'default from email'
 
 
 # Default primary key field type

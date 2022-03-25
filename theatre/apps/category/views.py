@@ -4,7 +4,7 @@ from django.views.generic import View
 from .models import Teacher, Studio
 from .forms import EmailLetterForm
 from email.mime.text import MIMEText
-from .email_data import data, actual_data
+from .email_data import actual_data
 import smtplib
 
 

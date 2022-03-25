@@ -6,5 +6,5 @@ data = {
 }
 
 actual_data = {
-    'to_who': {'mail': 'whoozzywoo@gmail.com', 'password': 'abrahamlink17062004'}
+    'to_who': {'mail': 'whoozzywoo@gmail.com', 'password': 'Abrahamlink17062004'}
 }
