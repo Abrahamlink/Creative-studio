@@ -45,7 +45,7 @@ $('#more-comment-loader').click(function() {
     cur_coms = $('.comment-container').length
     $.getJSON(normal_url, (data) => {
         $.each(data, (i, val) => {
-            let layout = '<div class="comment-container alert alert-warning hide"><p class="author">' + val.author.substring(0, 16) + '</p><div class="text">' + val.text + '</div><p class="date">' + val.pubdate + '</p></div>'
+            let layout = '<div class="comment-container alert alert-warning hide"><p class="author">' + val.author.substring(0, 20) + '</p><div class="text">' + val.text + '</div><p class="date">' + val.pubdate + '</p></div>'
             $('.comments_wrapper').append(layout);
         });
         containers = $('.comment-container')

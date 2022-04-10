@@ -16,7 +16,7 @@ class CommentForm(ModelForm):
             'text': Textarea(attrs={
                 'placeholder': 'Введите текст комментария',
                 'name': 'comment',
-                'rows': 10,
+                'rows': 8,
                 'class': 'form-control',
             }),
             'author_email': TextInput(attrs={

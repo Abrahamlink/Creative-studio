@@ -1,6 +1,5 @@
 current_link = window.location.href
 current_link = current_link.split('/')
-console.log(current_link)
 
 
 while (current_link.indexOf('#') > -1) {
@@ -11,11 +10,9 @@ while (current_link.indexOf('#') > -1) {
 while (current_link.indexOf('') > -1) {
     current_link.splice(current_link.indexOf(''), 1)
 }
-console.log(current_link)
 
 
 nav_list = $('.menu_link')
-console.log(nav_list)
 for (var i = 0; i < nav_list.length; i += 1) {
     last_path = current_link[current_link.length - 1]
     prelast_path = current_link[current_link.length - 2]

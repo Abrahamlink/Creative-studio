@@ -53,7 +53,7 @@
                     <a href="{% url 'all_news' %}">Новости,</a>
                     <span>{{ data.studio_name }}</span>
                     <span class="sep">|</span>
-                    <a href="#write-comment" class="add_comm">Комментарии</a>
+                    <a href="#write-comment" class="add_comm">Комментарий</a>
                     {% if data.was_published_recently %}
                         <span class="sep">|</span>
                         <span class="very-new-post">Свежая!</span>
@@ -108,7 +108,7 @@
                     <!-- with bootstrap -->
                     {% for comment in comments %}
                         <div class="comment-container alert alert-warning">
-                            <p class="author">{{ comment.author|truncatechars:15 }}</p>
+                            <p class="author">{{ comment.author|truncatechars:21 }}</p>
                             <div class="text">{{ comment.text|safe }}</div>
                             <p class="date">{{ comment.pubdate|date:'j.m.Y' }}</p>
                         </div>

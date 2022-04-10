@@ -8,7 +8,7 @@ $(document).on('click', function(event) {
         }
     }
     catch {
-        console.log('noob')
+        console.log('some error')
     }
 })
 
@@ -17,9 +17,8 @@ $(document).ready(function() {
         image = document.getElementById('main-image')
         h = image.naturalHeight
         w = image.naturalWidth
-        console.log(`${w}x${h}`)
     } catch {
-        console.log('hag')
+        console.log('error')
     }
 });
 

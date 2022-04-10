@@ -305,21 +305,26 @@ body {
     text-align: center;
 }
 .comment-container {
-    background-color: #f8e1d0;
+    /* background-color: #f8e1d0; */
+    background-color: #daf5e4;
     padding: .75rem 1.25rem;
+    box-shadow: 1px 2px 5px #33333337;
+    border-color: #3535353e;
 }
 .comment-container > div, .comment-container > p {
     display: flex;
     align-items: flex-end !important;
 }
 .author {
-    margin: 0;
-    color: #E35764;
+    margin: 0 0 5px 0;
+    /* color: #E35764; */
+    color: #414b50;
+    font-weight: 700;
     font-size: 16px;
 }
 .comment-container .date {
     font-size: 12px;
-    color: #35353580;
+    color: #414b5080;
     margin: 0;
     padding-top: 3px;    
 }
@@ -327,8 +332,11 @@ body {
     margin-right: 7px;
 }
 .text {
-    color: #1b1b1b;
-    font-size: 16px;
+    color: #111;
+    font-size: 18px;
+    line-height: 1.375rem;
+    word-break: break-all;
+    margin: 0 0 5px 0;
 }
 .comment-container:last-child {
     margin-bottom: 20px;

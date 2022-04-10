@@ -28,3 +28,8 @@ $('body').on('click', '.button_cleaner', function() {
         $("input[name='password']").attr('type', 'password');
     }
 });
+
+// data = document.getElementsByClassName('comment-container');
+// for (i of data) {
+//     i.style.background = '#153f77'
+// }

@@ -72,6 +72,7 @@ def post_data(request, post_id):
     }
     images = ImagePost.objects.filter(product=data_from_post)
     last_five_pubs = [(i.title, i.id) for i in ActionType.objects.get(title='Новость').actions.order_by('-pubdate')[:5]]
+    # If user writes comment below the post
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
