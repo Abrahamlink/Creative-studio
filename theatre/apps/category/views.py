@@ -36,7 +36,6 @@ def send_mail_latter(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             msg = MIMEText(message)
-            # msg['From'] = from_email
             msg['From'] = actual_data['to_who']['mail']
             msg['To'] = actual_data['to_who']['mail']
             msg['Subject'] = f'"{subject}"' + f' от {from_email}'
@@ -74,13 +73,13 @@ def render_colors_and_fonts_from_site(request):
     return render(request, template, context)
 
 
-class MyAjaxView(View):
-    def get(self, request):
-        text = request.GET.get('button_text')
-        if _is_ajax(request):
-            return JsonResponse({'text': text}, status=200)
-        return render(request, 'category/test.html', None)
-
-
-def _is_ajax(request):
-    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+# class MyAjaxView(View):
+#     def get(self, request):
+#         text = request.GET.get('button_text')
+#         if _is_ajax(request):
+#             return JsonResponse({'text': text}, status=200)
+#         return render(request, 'category/test.html', None)
+#
+#
+# def _is_ajax(request):
+#     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'

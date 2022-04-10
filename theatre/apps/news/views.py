@@ -9,6 +9,11 @@ from category.models import Studio
 
 
 def all_news_data(request):
+    '''
+    Generate page with all news with links on specific posts
+    :param request:
+    :return:
+    '''
     template = 'news/news.html'
     context = {'data': ''}
     try:
@@ -31,30 +36,6 @@ def all_news_data(request):
         context['data'] = posts_data
         return render(request, template, context)
 
-        # all_news = all_news_posts
-        # for post in all_news[:3]:
-        #     context['data'].append([post, len(Comment.objects.filter(post=post))])
-        #
-        # number = 0
-        # next_page = 0
-        # if request.GET.get('page'):
-        #     count = len(all_news)
-        #     number = int(request.GET.get('page', 1))
-        #     if number == 0:
-        #         all_news = all_news[:3]
-        #     elif (count - number*paginate_by) >= paginate_by and number != 0:
-        #         all_news = all_news[number * paginate_by: number * paginate_by + paginate_by]
-        #     else:
-        #         all_news = all_news[number * paginate_by:]
-        #     context = {'data': []}
-        #     for post in all_news:
-        #         context['data'].append([post, len(Comment.objects.filter(post=post))])
-        #
-        # if (number + 1) * paginate_by < len(all_news_posts):
-        #     next_page = number + 1
-        # context['next'] = next_page
-        # return HttpResponse(template.render(context, request))
-
     except Exception as ex:
         context['data'] = []
         print(ex)
@@ -62,6 +43,12 @@ def all_news_data(request):
 
 
 def post_data(request, post_id):
+    '''
+    Generate page with specific news post
+    :param request:
+    :param post_id:
+    :return response:
+    '''
     template = 'news/post.html'
     studio = Studio.objects.get(pk=1)
     data_from_post = NewsPost.objects.get(id=post_id)
@@ -155,6 +142,11 @@ def render_json_with_comments(request, post_id, comment_index):
 
 
 def actions(request):
+    '''
+    Generate page with all action's post
+    :param request:
+    :return:
+    '''
     template = 'news/actions.html'
     context = {}
     try:
@@ -179,6 +171,12 @@ def actions(request):
 
 
 def action_view(request, action_id):
+    '''
+    Generate page with action post
+    :param request:
+    :param action_id:
+    :return:
+    '''
     template = 'news/action.html'
     action = NewsPost.objects.get(id=action_id)
     return render(request, template, {'action': action})
@@ -187,7 +185,7 @@ def action_view(request, action_id):
 # Helpers
 # move data from FORM to COMMENT MODEL
 def _move_data_from_form_to_comment_model(form, comment, post):
-    """Функция, которая переносит дфнные из щаполненной на сайте формы в экземпляр класса Comment()"""
+    """Функция, которая переносит дфнные из заполненной на сайте формы в экземпляр класса Comment"""
     comment.post = post
     comment.author = form.data['author']
     comment.text = form.data['text']
